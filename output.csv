@@ -1,0 +1,30 @@
+Bug ID,Comment ID,Author,Comment Text,Author ID,User Name,Created On,Last Activity,Permissions,Bugs Filed,Comments Made,Assigned to,Assigned to and Fixed,Commented on,QA Contact,Patches Submitted,Patches Reviewed,Bugs Poked,Overall User Score
+1892769,16903281,pdahiya@mozilla.com,[Tracking Requested - why for this release]: Uplift candidate as fix is needed for Fx125 experiment https://mozilla-hub.atlassian.net/browse/OMC-643,471708.0,Punam Dahiya [:pdahiya],2013-05-30 10:55:04 PDT (11 years ago),2024-07-19 11:48:41 PDT,"Can confirm bugs, can edit any bug",490,3858,434,350,1440,0,340,96,2404,0.7829800480698296
+1892769,16903591,dmeehan@mozilla.com,"Tracking as requested. 
+Please keep in mind that next week is the final week of beta for Fx126. 
+Patches need to land in central and have a beta uplift request between now and EOD 2024-05-02",695136.0,Donal Meehan [:dmeehan],2021-11-01 11:46:00 PDT (3 years ago),2024-08-05 15:59:39 PDT,"Can confirm bugs, can edit any bug",62,4346,54,46,2386,0,9,1392,5924,0.7734406706335876
+1892769,16903858,jprickett@mozilla.com,"Created attachment 9398032
+Bug 1892769 - Add reverse-split styles to no-rdm selector r?#omc-reviewers",708280.0,Jason Prickett,2022-06-13 14:28:38 PDT (2 years ago),2024-07-19 12:42:05 PDT,"Can confirm bugs, can edit any bug",80,341,142,95,211,0,101,0,366,0.7578738273345182
+1892769,16905286,pulsebot@bmo.tld,"Pushed by jprickett@mozilla.com:
+https://hg.mozilla.org/integration/autoland/rev/5561ab4b64bf
+Add reverse-split styles to no-rdm selector r=omc-reviewers,hanna_a",510726.0,Pulsebot,2014-07-01 22:16:13 PDT (10 years ago),2024-08-06 00:47:06 PDT,"Can confirm bugs, can edit any bug",0,277789,0,0,217333,0,0,0,217333,0.5997679975471142
+1892769,16905808,acseh@mozilla.com,https://hg.mozilla.org/mozilla-central/rev/5561ab4b64bf,743348.0,Aron Cseh,2024-02-14 06:03:45 PST (6 months ago),2024-06-30 14:42:07 PDT,"Can confirm bugs, can edit any bug",20,718,0,0,695,0,0,0,718,0.5784468110395682
+1892769,16906084,dmeehan@mozilla.com,"Jason, please add a beta uplift request on this when ready",695136.0,Donal Meehan [:dmeehan],2021-11-01 11:46:00 PDT (3 years ago),2024-08-05 15:59:39 PDT,"Can confirm bugs, can edit any bug",62,4346,54,46,2386,0,9,1392,5924,0.7734406706335876
+1892769,16906834,jprickett@mozilla.com,"Created attachment 9398490
+Bug 1892769 - Add reverse-split styles to no-rdm selector r?#omc-reviewers
+
+This patch adds the reverse-split rules to the `no-rdm` selector so that reverse-split isn't reverted at widths less than 800px.
+
+Original Revision: https://phabricator.services.mozilla.com/D208272",708280.0,Jason Prickett,2022-06-13 14:28:38 PDT (2 years ago),2024-07-19 12:42:05 PDT,"Can confirm bugs, can edit any bug",80,341,142,95,211,0,101,0,366,0.7578738273345182
+1892769,16906847,phab-bot@bmo.tld,"### beta Uplift Approval Request
+- **User impact if declined**: None. Experiment will not run in 126
+- **Code covered by automated testing**: no
+- **Fix verified in Nightly**: yes
+- **Needs manual QE test**: yes
+- **Steps to reproduce for manual QE testing**: Test steps are in this patch
+- **Risk associated with taking this patch**: minimal
+- **Explanation of risk level**: Simply adds css styles to a selector that is currently not being used
+- **String changes made/needed**: none
+- **Is Android affected?**: no",600971.0,Phabricator Automation,2017-08-24 13:00:02 PDT (7 years ago),2024-08-06 00:42:55 PDT,"Can confirm bugs, can edit any bug",0,7388,0,0,4187,0,1357,711,58292,0.5948891404215844
+1892769,16907058,pulsebot@bmo.tld,https://hg.mozilla.org/releases/mozilla-beta/rev/c91e9fa4eff6,510726.0,Pulsebot,2014-07-01 22:16:13 PDT (10 years ago),2024-08-06 00:47:06 PDT,"Can confirm bugs, can edit any bug",0,277789,0,0,217333,0,0,0,217333,0.5997679975471142
+1892769,16909368,bmaris@mozilla.com,"Reproduced the issue using an affected build (Firefox 126 beta 3), verified that using latest Nightly 127.0a1 build and latest Beta 126 build from treeherder across platforms (Windows 11, macOS 13 and Ubuntu 22.04) this is indeed fixed, the content of the spotlight message remains fixed and is not flipped when having various width sizes, under 800 or above.",458188.0,"Bogdan Maris, Desktop QA",2012-12-10 01:35:16 PST (12 years ago),2024-08-02 07:01:18 PDT,"Can confirm bugs, can edit any bug",714,3950,1,0,2586,682,0,0,4031,0.6915874003107061

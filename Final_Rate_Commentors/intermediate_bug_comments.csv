@@ -1,0 +1,1433 @@
+1900978,16970044,acornestean@mozilla.com,"Created attachment 9405844
+Screenshots.png
+
+### Affected version/platform:
+- Nightly for Android 128.0a1 (Build #2016025071, hg-0145aa9151f+, GV: 128.0a1-20240605162721) 
+
+### Description:
+Permissions requiring two lines to be displayed will be cut off at the first line, the second line not being displayed. This occurs in the Add-ons Manager on the add-on’s Permissions page.
+On the installation panel of the extension, the permissions are correctly and fully displayed on two lines.
+
+Examples of add-ons/permissions being affected:
+
+LeechBlock NG:
+- “Download files and read and modify the browser’s download history” – permission displayed as “Download files and read and modify the”.
+
+Video background Play Fix:
+- “Access your data for sites in the youtube.com domain” – permission displayed as “Access your data for sites in the”
+- “Access your data for sites in the youtube-nociikie.com domain” – permission displayed as “Access your data for sites in the”
+- “Access your data for sites in the vimeo.com domain” – permission displayed as “Access your data for sites in the vimeo.com”
+
+NOTE 1: The issue occurs only in portrait mode. In landscape mode, the permissions are fully and correctly displayed.
+NOTE 2: Firefox Release 126 and Beta 127 for Android are not affected, fully displaying the permissions.
+
+### Steps to reproduce:
+1. Access AMO for Android and install “LeechBlock NG” and “Video background Play Fix”
+2. Notice that the permissions requiring two lines to be displayed are correctly and fully displayed on the add-on install panels
+3. Access Add-ons Manager and check the Permissions page for each add-on
+4. Observe that the permissions which require two lines to be displayed are cut off at the first line, the second line not being displayed.
+
+### Actual:
+Permissions requiring two lines to be displayed are cut off at the first line on the Permissions page in Add-ons Manager
+
+### Expected:
+The permissions should be fully displayed.
+
+### Device information
+* Android device model: Oppo Reno 6 5G
+* Android OS version: 13",651196
+1900978,16976117,zmckenney@mozilla.com,"Created attachment 9406551
+Bug 1900978 - Allow required permissions labels in extensions manager to use more lines",717285
+1900978,16977498,pulsebot@bmo.tld,"Pushed by zmckenney@mozilla.com:
+https://hg.mozilla.org/integration/autoland/rev/2f8591e70264
+Allow required permissions labels in extensions manager to use more lines r=android-reviewers,amejiamarmol,petru",510726
+1900978,16977740,imoraru@mozilla.com,https://hg.mozilla.org/mozilla-central/rev/2f8591e70264,682863
+1900978,16977871,wdurand@mozilla.com,"Hey Alex, could you please verify this bug? Thanks!",603050
+1900978,16977909,acornestean@mozilla.com,"Verified as Fixed. Tested on a Fenix Debug build (1.0.2424 Build #1, GV: 129.0a1-20240612044308, AS: 129.20240611050302) from https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=eeada934b615e943700b2b09e517fd419d9abcb8&searchStr=fenix-android-all%2Copt&selectedTaskRun=C2kUx7bGTv-ifGOVpL-DUA.0 (Bf) on an Oppo Reno 6 5G running Android 13.
+
+As per the original STR, I installed “LeechBlock NG” and “Video background Play Fix” and checked their “Permissions” pages. All permissions are now fully displayed, including the ones requiring two lines.
+
+See the attached screenshot for more details.",651196
+1900978,16977910,acornestean@mozilla.com,"Created attachment 9406911
+ScreenshotFix.jpg",651196
+1900978,16977912,wdurand@mozilla.com,"Created attachment 9406912
+Bug 1900978 - Allow required permissions labels in extensions manager to use more lines
+
+
+
+Original Revision: https://phabricator.services.mozilla.com/D213176",603050
+1900978,16977917,phab-bot@bmo.tld,"### beta Uplift Approval Request
+- **User impact if declined**: All users with extensions on Android
+- **Code covered by automated testing**: no
+- **Fix verified in Nightly**: yes
+- **Needs manual QE test**: no
+- **Steps to reproduce for manual QE testing**: N/A
+- **Risk associated with taking this patch**: Low
+- **Explanation of risk level**: it is a one-line change
+- **String changes made/needed**: None
+- **Is Android affected?**: yes",600971
+1900978,16977920,wdurand@mozilla.com,"I submitted an uplift request because having permission names partially hidden isn't great. Since it is a regression from a patch in 128, let's make sure it is fixed in beta (128) too.",603050
+1900978,16980508,pulsebot@bmo.tld,https://hg.mozilla.org/releases/mozilla-beta/rev/3b16d98f504a,510726
+1900978,16981476,acornestean@mozilla.com,"Verified as Fixed. 
+Tested on a Fenix Beta Debug build (1.0.2424 Build #1, GV: 128.0-20240613173628, AS: 128.0) from https://treeherder.mozilla.org/jobs?repo=mozilla-beta&revision=3b16d98f504a3530c660b99026d84ef5829d5445&searchStr=android&selectedTaskRun=BQAOyNQHRiWG9_lQFuHMqA.0 (Bf) on an Oppo Reno 6 5G running Android 13.
+
+As per the original STR, I installed “LeechBlock NG” and “Video background Play Fix” and checked their “Permissions” pages. All permissions are now fully displayed, including the ones requiring two lines.
+
+See the attached screenshot for more details.",651196
+1900978,16981477,acornestean@mozilla.com,"Created attachment 9407460
+Screenshot Fix Beta.jpg",651196
+1900978,16970044,acornestean@mozilla.com,"Created attachment 9405844
+Screenshots.png
+
+### Affected version/platform:
+- Nightly for Android 128.0a1 (Build #2016025071, hg-0145aa9151f+, GV: 128.0a1-20240605162721) 
+
+### Description:
+Permissions requiring two lines to be displayed will be cut off at the first line, the second line not being displayed. This occurs in the Add-ons Manager on the add-on’s Permissions page.
+On the installation panel of the extension, the permissions are correctly and fully displayed on two lines.
+
+Examples of add-ons/permissions being affected:
+
+LeechBlock NG:
+- “Download files and read and modify the browser’s download history” – permission displayed as “Download files and read and modify the”.
+
+Video background Play Fix:
+- “Access your data for sites in the youtube.com domain” – permission displayed as “Access your data for sites in the”
+- “Access your data for sites in the youtube-nociikie.com domain” – permission displayed as “Access your data for sites in the”
+- “Access your data for sites in the vimeo.com domain” – permission displayed as “Access your data for sites in the vimeo.com”
+
+NOTE 1: The issue occurs only in portrait mode. In landscape mode, the permissions are fully and correctly displayed.
+NOTE 2: Firefox Release 126 and Beta 127 for Android are not affected, fully displaying the permissions.
+
+### Steps to reproduce:
+1. Access AMO for Android and install “LeechBlock NG” and “Video background Play Fix”
+2. Notice that the permissions requiring two lines to be displayed are correctly and fully displayed on the add-on install panels
+3. Access Add-ons Manager and check the Permissions page for each add-on
+4. Observe that the permissions which require two lines to be displayed are cut off at the first line, the second line not being displayed.
+
+### Actual:
+Permissions requiring two lines to be displayed are cut off at the first line on the Permissions page in Add-ons Manager
+
+### Expected:
+The permissions should be fully displayed.
+
+### Device information
+* Android device model: Oppo Reno 6 5G
+* Android OS version: 13",651196
+1900978,16976117,zmckenney@mozilla.com,"Created attachment 9406551
+Bug 1900978 - Allow required permissions labels in extensions manager to use more lines",717285
+1900978,16977498,pulsebot@bmo.tld,"Pushed by zmckenney@mozilla.com:
+https://hg.mozilla.org/integration/autoland/rev/2f8591e70264
+Allow required permissions labels in extensions manager to use more lines r=android-reviewers,amejiamarmol,petru",510726
+1900978,16977740,imoraru@mozilla.com,https://hg.mozilla.org/mozilla-central/rev/2f8591e70264,682863
+1900978,16977871,wdurand@mozilla.com,"Hey Alex, could you please verify this bug? Thanks!",603050
+1900978,16977909,acornestean@mozilla.com,"Verified as Fixed. Tested on a Fenix Debug build (1.0.2424 Build #1, GV: 129.0a1-20240612044308, AS: 129.20240611050302) from https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=eeada934b615e943700b2b09e517fd419d9abcb8&searchStr=fenix-android-all%2Copt&selectedTaskRun=C2kUx7bGTv-ifGOVpL-DUA.0 (Bf) on an Oppo Reno 6 5G running Android 13.
+
+As per the original STR, I installed “LeechBlock NG” and “Video background Play Fix” and checked their “Permissions” pages. All permissions are now fully displayed, including the ones requiring two lines.
+
+See the attached screenshot for more details.",651196
+1900978,16977910,acornestean@mozilla.com,"Created attachment 9406911
+ScreenshotFix.jpg",651196
+1900978,16977912,wdurand@mozilla.com,"Created attachment 9406912
+Bug 1900978 - Allow required permissions labels in extensions manager to use more lines
+
+
+
+Original Revision: https://phabricator.services.mozilla.com/D213176",603050
+1900978,16977917,phab-bot@bmo.tld,"### beta Uplift Approval Request
+- **User impact if declined**: All users with extensions on Android
+- **Code covered by automated testing**: no
+- **Fix verified in Nightly**: yes
+- **Needs manual QE test**: no
+- **Steps to reproduce for manual QE testing**: N/A
+- **Risk associated with taking this patch**: Low
+- **Explanation of risk level**: it is a one-line change
+- **String changes made/needed**: None
+- **Is Android affected?**: yes",600971
+1900978,16977920,wdurand@mozilla.com,"I submitted an uplift request because having permission names partially hidden isn't great. Since it is a regression from a patch in 128, let's make sure it is fixed in beta (128) too.",603050
+1900978,16980508,pulsebot@bmo.tld,https://hg.mozilla.org/releases/mozilla-beta/rev/3b16d98f504a,510726
+1900978,16981476,acornestean@mozilla.com,"Verified as Fixed. 
+Tested on a Fenix Beta Debug build (1.0.2424 Build #1, GV: 128.0-20240613173628, AS: 128.0) from https://treeherder.mozilla.org/jobs?repo=mozilla-beta&revision=3b16d98f504a3530c660b99026d84ef5829d5445&searchStr=android&selectedTaskRun=BQAOyNQHRiWG9_lQFuHMqA.0 (Bf) on an Oppo Reno 6 5G running Android 13.
+
+As per the original STR, I installed “LeechBlock NG” and “Video background Play Fix” and checked their “Permissions” pages. All permissions are now fully displayed, including the ones requiring two lines.
+
+See the attached screenshot for more details.",651196
+1900978,16981477,acornestean@mozilla.com,"Created attachment 9407460
+Screenshot Fix Beta.jpg",651196
+1896009,16928618,klk745@gmail.com,"User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+
+Steps to reproduce:
+
+115.10.1 introduced a strange bug for me:
+
+1. Start TB or let TB load new e-mails into the inbox.
+
+
+Actual results:
+
+TB starts with the top scroll position of the inbox set to mail #2.
+That way the first/freshest mail is always ""invisible"" and I need to scroll up.
+
+
+
+Expected results:
+
+TB should always scroll to the first mail in the inbox, not the second, like it was the case before 115.10.1.
+
+A research on the web revealed at least three other users with exactly the same problem in this thread on a german TB forum:
+https://www.thunderbird-mail.de/forum/thread/94527-ansicht-posteingang/?pageNo=1",238027
+1896009,16932913,klk745@gmail.com,"Addendum: it seems to only affect POP3 inbox folders. Inbox folders for IMAP accounts scroll to the first mail, as it used to be before this regression. (confirmed by at least two other users in the aforementioned forum)",238027
+1896009,16933717,h.w.forms@arcor.de,"__Steps to reproduce (in TB 115.10):__
+
+1. Select a local folder with a bunch of messages sorted by date, descending, without any persisted selection.
+2. Select ""Local folders"" in the folder pane.
+3. Select the local folder itself again.
+4. Repeat steps 2 and 3.
+
+__Expected result:__
+When the local folder is selected, the topmost message is always scrolled into view.
+
+__Actual result:__
+Every other time the local folder is selected, the the view is _not_ scrolled all the way up to the top.
+
+If you switch back and forth between an IMAP folder and the account it belongs to, the view will scroll to the top, but visibly only after a short delay.",363062
+1896009,16933719,h.w.forms@arcor.de,"[Regression window](https://hg.mozilla.org/comm-central/pushloghtml?fromchange=c3eeb13056e5402b1669e5751227214b3174a374&tochange=89a8fa3b520f15421aab1214e467976b3ea64b6f)
+
+Backing out [this revision](https://hg.mozilla.org/releases/comm-esr115/rev/459b6d2a94d17fb1ea26d0767923341d93265623) from comm-esr115 resolves the issue.",363062
+1896009,16933805,geoff@thunderbird.net,"I understand what's happening here. Not sure why it doesn't appear to happen on beta, but there's been several other changes to the message list loading there.",158464
+1896009,16933809,geoff@thunderbird.net,"Created attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+When the view gets hidden, the resize observers are informed that its height is 0. Consequently
+when it becomes unhidden, some calculations are performed using a cached height of 0, before the
+resize observers are updated.
+
+When the header itself is hidden, we DO cache a height of 0, because that is the actual height.",158464
+1896009,16935833,pulsebot@bmo.tld,"Pushed by benc@thunderbird.net:
+https://hg.mozilla.org/comm-central/rev/8f0d035dc97e
+Ignore changes to TreeView header height when the view is hidden. r=mkmelin",510726
+1896009,16936224,h.w.forms@arcor.de,*** Bug 1895031 has been marked as a duplicate of this bug. ***,363062
+1896009,16941293,klk745@gmail.com,Will this be fixed in the 115 ESR series as well?,238027
+1896009,16946586,geoff@thunderbird.net,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Approval Request Comment]
+Regression caused by (bug #): bug 1883550
+User impact if declined: message list starts at the wrong scroll position in some circumstances
+Testing completed (on c-c, etc.): 
+Risk to taking this patch (and alternatives if risky):",158464
+1896009,16946612,vseerror@fastmail.com,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Triage Comment]
+Approved beta",29811
+1896009,16947992,daniel@thunderbird.net,"Thunderbird 127.0b3:
+https://hg.mozilla.org/releases/comm-beta/rev/729f3f224c29",709542
+1896009,16998621,vseerror@fastmail.com,"""The bug is reproducible on 115 by switching between a large local or POP3 folder (newest at top) and the account's root folder. It doesn't really happen on central, so you might want to copy these changes to 115 to test it works.""
+
+Are you suggesting we should uplift to 115?",29811
+1896009,16998627,geoff@thunderbird.net,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Approval Request Comment]
+Regression caused by (bug #): bug 1883550
+User impact if declined: message list starts at the wrong scroll position in some circumstances
+Testing completed (on c-c, etc.): in 127.0b3
+Risk to taking this patch (and alternatives if risky): low
+
+(yes)",158464
+1896009,16998628,geoff@thunderbird.net,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+Bah, wrong flag.",158464
+1896009,17008967,vseerror@fastmail.com,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Triage Comment]
+Approved for esr115",29811
+1896009,17010022,daniel@thunderbird.net,"Thunderbird 115.13.0:
+https://hg.mozilla.org/releases/comm-esr115/rev/6664aa91420d",709542
+1896009,16928618,klk745@gmail.com,"User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+
+Steps to reproduce:
+
+115.10.1 introduced a strange bug for me:
+
+1. Start TB or let TB load new e-mails into the inbox.
+
+
+Actual results:
+
+TB starts with the top scroll position of the inbox set to mail #2.
+That way the first/freshest mail is always ""invisible"" and I need to scroll up.
+
+
+
+Expected results:
+
+TB should always scroll to the first mail in the inbox, not the second, like it was the case before 115.10.1.
+
+A research on the web revealed at least three other users with exactly the same problem in this thread on a german TB forum:
+https://www.thunderbird-mail.de/forum/thread/94527-ansicht-posteingang/?pageNo=1",238027
+1896009,16932913,klk745@gmail.com,"Addendum: it seems to only affect POP3 inbox folders. Inbox folders for IMAP accounts scroll to the first mail, as it used to be before this regression. (confirmed by at least two other users in the aforementioned forum)",238027
+1896009,16933717,h.w.forms@arcor.de,"__Steps to reproduce (in TB 115.10):__
+
+1. Select a local folder with a bunch of messages sorted by date, descending, without any persisted selection.
+2. Select ""Local folders"" in the folder pane.
+3. Select the local folder itself again.
+4. Repeat steps 2 and 3.
+
+__Expected result:__
+When the local folder is selected, the topmost message is always scrolled into view.
+
+__Actual result:__
+Every other time the local folder is selected, the the view is _not_ scrolled all the way up to the top.
+
+If you switch back and forth between an IMAP folder and the account it belongs to, the view will scroll to the top, but visibly only after a short delay.",363062
+1896009,16933719,h.w.forms@arcor.de,"[Regression window](https://hg.mozilla.org/comm-central/pushloghtml?fromchange=c3eeb13056e5402b1669e5751227214b3174a374&tochange=89a8fa3b520f15421aab1214e467976b3ea64b6f)
+
+Backing out [this revision](https://hg.mozilla.org/releases/comm-esr115/rev/459b6d2a94d17fb1ea26d0767923341d93265623) from comm-esr115 resolves the issue.",363062
+1896009,16933805,geoff@thunderbird.net,"I understand what's happening here. Not sure why it doesn't appear to happen on beta, but there's been several other changes to the message list loading there.",158464
+1896009,16933809,geoff@thunderbird.net,"Created attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+When the view gets hidden, the resize observers are informed that its height is 0. Consequently
+when it becomes unhidden, some calculations are performed using a cached height of 0, before the
+resize observers are updated.
+
+When the header itself is hidden, we DO cache a height of 0, because that is the actual height.",158464
+1896009,16935833,pulsebot@bmo.tld,"Pushed by benc@thunderbird.net:
+https://hg.mozilla.org/comm-central/rev/8f0d035dc97e
+Ignore changes to TreeView header height when the view is hidden. r=mkmelin",510726
+1896009,16936224,h.w.forms@arcor.de,*** Bug 1895031 has been marked as a duplicate of this bug. ***,363062
+1896009,16941293,klk745@gmail.com,Will this be fixed in the 115 ESR series as well?,238027
+1896009,16946586,geoff@thunderbird.net,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Approval Request Comment]
+Regression caused by (bug #): bug 1883550
+User impact if declined: message list starts at the wrong scroll position in some circumstances
+Testing completed (on c-c, etc.): 
+Risk to taking this patch (and alternatives if risky):",158464
+1896009,16946612,vseerror@fastmail.com,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Triage Comment]
+Approved beta",29811
+1896009,16947992,daniel@thunderbird.net,"Thunderbird 127.0b3:
+https://hg.mozilla.org/releases/comm-beta/rev/729f3f224c29",709542
+1896009,16998621,vseerror@fastmail.com,"""The bug is reproducible on 115 by switching between a large local or POP3 folder (newest at top) and the account's root folder. It doesn't really happen on central, so you might want to copy these changes to 115 to test it works.""
+
+Are you suggesting we should uplift to 115?",29811
+1896009,16998627,geoff@thunderbird.net,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Approval Request Comment]
+Regression caused by (bug #): bug 1883550
+User impact if declined: message list starts at the wrong scroll position in some circumstances
+Testing completed (on c-c, etc.): in 127.0b3
+Risk to taking this patch (and alternatives if risky): low
+
+(yes)",158464
+1896009,16998628,geoff@thunderbird.net,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+Bah, wrong flag.",158464
+1896009,17008967,vseerror@fastmail.com,"Comment on attachment 9401543
+Bug 1896009 - Ignore changes to TreeView header height when the view is hidden. r=#thunderbird-reviewers
+
+[Triage Comment]
+Approved for esr115",29811
+1896009,17010022,daniel@thunderbird.net,"Thunderbird 115.13.0:
+https://hg.mozilla.org/releases/comm-esr115/rev/6664aa91420d",709542
+1898476,16949381,Vash63@gmail.com,"User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+
+Steps to reproduce:
+
+1. Installed the new Nvidia 555 series drivers
+2. Used Gnome 46.1 or another compositor with Explicit Sync support (kwin w/ some patches)
+3. Run Firefox
+
+
+Actual results:
+
+Firefox crashes with:
+```
+$ firefox-nightly/firefox
+[GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@59: error 4: No Acquire point provided
+
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::GenerateDump cloned child 43927
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+```
+
+
+Expected results:
+
+Firefox runs",496444
+1898476,16949414,release-mgmt-account-bot@mozilla.tld,"The [Bugbug](https://github.com/mozilla/bugbug/) bot thinks this bug should belong to the 'Core::Widget: Gtk' component, and is moving the bug to that component. Please correct in case you think the bot is wrong.",575867
+1898476,16951105,konrad@moesch.org,"For me, the error message looks slightly different:
+
+```
+$ firefox
+[GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@75: error 4: explicit sync is used, but no acquire point is set
+
+ExceptionHandler::GenerateDump cloned child 118029
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+Exiting due to channel error.
+```
+However, I think it is the same error.
+
+Troubleshoot mode works fine, normal mode (also without addons) crashes",754446
+1898476,16952701,Vash63@gmail.com,"Saw this when discussing this online: https://invent.kde.org/plasma/kwin/-/merge_requests/5683
+
+Not sure it helps here but it was causing QMplay2 on mesa w/ RADV (presumably this uses Vulkan somewhere?) to crash with:
+""wp_linux_drm_syncobj_surface_v1@107: error 4: explicit sync is used, but no acquire point is set""
+
+Maybe my bug is actually caused by Mutter then? @konrad are you on KDE, and if so can you try the above patch (or -git version of kwin since it's merged)?",496444
+1898476,16952710,Vash63@gmail.com,"(In reply to konrad from comment #2)
+> For me, the error message looks slightly different:
+> 
+> ```
+> $ firefox
+> [GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@75: error 4: explicit sync is used, but no acquire point is set
+> 
+> ExceptionHandler::GenerateDump cloned child 118029
+> ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+> ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+> Exiting due to channel error.
+> ```
+> However, I think it is the same error.
+> 
+> Troubleshoot mode works fine, normal mode (also without addons) crashes
+
+I re-tested this on the KDE 6.1 beta w/ explicit sync and can confirm the error changes to match yours:
+> [GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@66: error 4: explicit sync is used, but no acquire point is set
+
+So it seems the error is from the compositor, not Firefox?",496444
+1898476,16952814,demarketed@gmail.com,"There is an issue about this on NVIDIA's egl-wayland repo, and it seems that the [Firefox's behavior is problematic](https://github.com/NVIDIA/egl-wayland/issues/110#issuecomment-2132241753).",674282
+1898476,16952864,jan@ikenmeyer.eu,*** Bug 1899000 has been marked as a duplicate of this bug. ***,580271
+1898476,16956957,demarketed@gmail.com,"In the [GitLab thread about the sync protocol](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/merge_requests/90#note_2243522), this is mentioned:
+> With firefox I'm seeing something some extra frame and commit events get injected into my attach+syncpoints+commit cycle:
+```
+[2365871.993]  -> wl_surface@63.attach(wl_buffer@67, 0, 0)
+[2365872.013]  -> wl_surface@63.frame(new id wl_callback@65)  <<<<<< This gets added from firefox
+[2365872.019]  -> wl_surface@63.commit()
+[2365872.039]  -> wp_linux_drm_syncobj_surface_v1@55.set_acquire_point(wp_linux_drm_syncobj_timeline_v1@59, 0, 252)
+[2365872.046]  -> wp_linux_drm_syncobj_surface_v1@55.set_release_point(wp_linux_drm_syncobj_timeline_v1@70, 0, 84)
+[2365872.051]  -> wl_surface@63.damage(0, 0, 1280, 972)
+[2365872.057]  -> wl_surface@63.commit()                      <<<<<< No buffer attach in this commit
+[2365872.062]  -> wl_display@1.sync(new id wl_callback@77)
+[2365872.139] wl_buffer@73.release()
+[2365872.234] wl_display@1.error(wl_surface@63, 3, ""explicit sync point set but no buffer attached for surface 63"")
+```
+
+The issue has also been reported on the [Mutter GitLab](https://gitlab.gnome.org/GNOME/mutter/-/issues/3504).
+
+According to the [discussions on GitHub](https://github.com/NVIDIA/egl-wayland/issues/110#issuecomment-2132241753) about this, Firefox has a thread trying to write to a surface allocation that another thread has not created yet, resulting in behavior that is not allowed by the sync protocol. There is a [log from Firefox](https://github.com/NVIDIA/egl-wayland/issues/110#issuecomment-2125358355) and a [log from Thunderbird](https://github.com/NVIDIA/egl-wayland/issues/110#issue-2310505060) of the issue happening.",674282
+1898476,16959990,stransky@redhat.com,"Yes, we'd need to sync write to wl_surface. Main issue is to share lock between GL and widget code.",263117
+1898476,16962514,admin@my4ng.dev,Is there any interim fix apart from downgrading explicit sync possible? Firefox has been crashing constantly with kwin and nvidia driver 555.,755230
+1898476,16962599,demarketed@gmail.com,"> Is there any interim fix
+
+You can run Firefox under Xwayland to work around the issue with the environment variable MOZ_ENABLE_WAYLAND=0. I have [copied the desktop file](https://wiki.archlinux.org/title/Desktop_entries#Modify_environment_variables) for Firefox to my user's ~/.local/share/applications so that I could set that variable automatically when launching Firefox.",674282
+1898476,16962823,admin@my4ng.dev,"> You can run Firefox under Xwayland to work around the issue with the environment variable MOZ_ENABLE_WAYLAND=0. I have [copied the desktop file](https://wiki.archlinux.org/title/Desktop_entries#Modify_environment_variables) for Firefox to my user's ~/.local/share/applications so that I could set that variable automatically when launching Firefox.
+
+That worked, thank you! I just added it to `/etc/environment` and restarted.",755230
+1898476,16972474,jon@ynstein.net,Is there an update that is expected to resolve this? I would rather not run using xwayland as it seems to degrade performance significantly.,755590
+1898476,16972505,kehofset@live.no,"(In reply to jon from comment #12)
+> Is there an update that is expected to resolve this? I would rather not run using xwayland as it seems to degrade performance significantly.
+
+For me Firefox reverted to software rendering in Xwayland mode, with significantly degraded performance. Setting `gfx.webrender.all=true` in about:config got it back to hardware rendering and got me mostly back to normal performance.",617490
+1898476,16975951,jon@ynstein.net,"(In reply to Karl Erik Hofseth from comment #13)
+> For me Firefox reverted to software rendering in Xwayland mode, with significantly degraded performance. Setting `gfx.webrender.all=true` in about:config got it back to hardware rendering and got me mostly back to normal performance.
+
+Unfortunately this didn't seem to work for me. Half of the text won't render for some reason.",755590
+1898476,16978090,nodensntt@hotmail.com,"(In reply to jon from comment #14)
+> (In reply to Karl Erik Hofseth from comment #13)
+> > For me Firefox reverted to software rendering in Xwayland mode, with significantly degraded performance. Setting `gfx.webrender.all=true` in about:config got it back to hardware rendering and got me mostly back to normal performance.
+> 
+> Unfortunately this didn't seem to work for me. Half of the text won't render for some reason.
+
+The reason it does that is because by default it is actually using the zink egl provider (can verify on about:support).
+The way to workaround it is add __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+
+This will make firefox switch to GLX basically because Nvidia EGL in xwayland is currently broken but you will get hardware acceleration and no broken fonts (the fonts issue is somehow related to subpixel rendering when using zink as I figured I can remedy the problem somewhat by flipping subpixel rendering option in KDE to something else and then back to RGB (in the case of my monitors) or None).
+
+Still this workaround, while it provides basic hardware acceleration, it comes with a lot of caveats that I have encountered. Main ones of the top of my head is that video hardware acceleration is impossible and there's no dmabuf support.
+
+Considering the performance issues on xwayland this should probably be higher priority as a release nvidia driver with explicit sync is coming soon and it will break wayland firefox on every system with nvidia proprietary driver.",427666
+1898476,16979422,jon@ynstein.net,"(In reply to nodensntt from comment #15)
+
+Thanks for the insight. I agree this should absolutely be a high priority.",755590
+1898476,16982240,juanrollgamer123456789@gmail.com,"Is there no ETA for a bug fix for this? I'm considering the option of using chromium as my daily driver since I'd want all my programs to be Wayland native, and this bug should be a higher priority since it breaks the experience of the browser. Firefox is better than chromium for me, but this bug is really grinding my gears. I appreciate what the developers are doing to give us an amazing experience and i thank you all for that as well.",754995
+1898476,16982262,mpalys7274@gmail.com,"I agree as to the potential high priority on this bug, as it makes Firefox completely unusable on the new Nvidia drivers.",755896
+1898476,16999067,fynnbwdt@gmail.com,"I'm not sure if this is also related to this issue, but since using the v555 drivers and plasma 6.1, I've been encountering occasional stuttering in full-screen video playback, i.e. the Video runs perfectly fine, and then the Framerate seems to dip considerably until it catches back up a few moments later. This happens in a clean-profile as well and notably does not seem to be related to video buffering.
+
+The issue is exclusive to Firefox and does not happen in chromium based browser - I'm fairly certain it is related to explicit sync support but I'm not quite certain, let me know if there is an existing report for this issue as well (could not find one) or if I should open a separate issue for this",756403
+1898476,16999068,fynnbwdt@gmail.com,"(In reply to fynnbwdt from comment #19)
+> I'm not sure if this is also related to this issue, but since using the v555 drivers and plasma 6.1, I've been encountering occasional stuttering in full-screen video playback, i.e. the Video runs perfectly fine, and then the Framerate seems to dip considerably until it catches back up a few moments later. This happens in a clean-profile as well and notably does not seem to be related to video buffering.
+> 
+> The issue is exclusive to Firefox and does not happen in chromium based browser - I'm fairly certain it is related to explicit sync support but I'm not quite certain, let me know if there is an existing report for this issue as well (could not find one) or if I should open a separate issue for this
+
+PS: Notably, it also does not happen when the video is not in full-screen. This happens only for full-screen video playback",756403
+1898476,16999890,stransky@redhat.com,"Created attachment 9409541
+Bug 1898476 [Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r?emilio",263117
+1898476,16999891,stransky@redhat.com,"Created attachment 9409542
+Bug 1898476 [Wayland] Provide surface lock by GtkCompositorWidget r?emilio
+
+
+
+Depends on D214883",263117
+1898476,16999892,stransky@redhat.com,"Created attachment 9409543
+Bug 1898476 [Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r?emilio,jgilbert
+
+
+
+Depends on D214884",263117
+1898476,17001284,juanrollgamer123456789@gmail.com,Thanks Martin. We know you will do a great work in fixing this problem. Looking forward for a better Linux experience!,754995
+1898476,17008739,kristalandstarlight@proton.me,*** Bug 1905762 has been marked as a duplicate of this bug. ***,756715
+1898476,17009314,Vash63@gmail.com,This is now impacting the stable Nvidia drivers since the release branch now supports explicit sync. Are the patches just needing review/testing? Firefox is fairly large so I don't usually built it myself but I'll see if I can test this in the coming days.,496444
+1898476,17010420,kahis19060@cutxsew.com,"Nvidia 555.58 driver, Fedora 40, KDE Plasma 6.1.1, Wayland. 
+
+Google web services (docs, drive) crash firefox when hardware acceleration enabled. Crashes do not occur when hardware acceleration is disabled in Firefox 127.0.2.",756799
+1898476,17011729,juanrollgamer123456789@gmail.com,"(In reply to Vash63 from comment #26)
+> This is now impacting the stable Nvidia drivers since the release branch now supports explicit sync. Are the patches just needing review/testing? Firefox is fairly large so I don't usually built it myself but I'll see if I can test this in the coming days.
+> Nvidia 555.58 driver, Fedora 40, KDE Plasma 6.1.1, Wayland. 
+> 
+> Google web services (docs, drive) crash firefox when hardware acceleration enabled. Crashes do not occur when hardware acceleration is disabled in Firefox 127.0.2.
+
+Yes. It's only related in how the NVIDIA driver communicates with the compositor. I found out that Firefox works just fine under Wayland using compositors without the linux-drm-syncobj-v1 protocol, like Hyprland. Might be because the compositor is not forcing buffer synchronization since it doesn't supports it. I'm not a programmer so i might be wrong, but what I do know is that this bug needs to be fixed and merged as soon as possible since it breaks the experience of the user. BTW you can use XWayland as a workaround if you want",754995
+1898476,17011960,prodrigestivill@gmail.com,"Regarding to Xwayland, at least with my setup (mutter 46.3.1, Xwayland 24.1.0, nvidia 555.58.02), using Firefox inside Xwayland it won't crash but all windows contents are totally corrupted, leaving Firefox unable to be used with this combination either. If I'm not mistaken Xwayland also have implemented support for linux-drm-syncobj-v1, even that I'm not sure if this is related with this other issue, but other EGL apps work well under Xwayland.
+
+Also, I noticed that at least in Firefox 128.0b9, using NVIDIA and with selected the ""recommended"" performance settings, it now automatically disables the hardware compositing (Acceleration blocked by platform), allowing the usage of Firefox under Wayland without crashing.
+I assume this have been added as a temporally workaround.
+
+Thanks.",739305
+1898476,17011997,nodensntt@hotmail.com,"(In reply to Pau RE from comment #29)
+> Regarding to Xwayland, at least with my setup (mutter 46.3.1, Xwayland 24.1.0, nvidia 555.58.02), using Firefox inside Xwayland it won't crash but all windows contents are totally corrupted, leaving Firefox unable to be used with this combination either. If I'm not mistaken Xwayland also have implemented support for linux-drm-syncobj-v1, even that I'm not sure if this is related with this other issue, but other EGL apps work well under Xwayland.
+> 
+> Also, I noticed that at least in Firefox 128.0b9, using NVIDIA and with selected the ""recommended"" performance settings, it now automatically disables the hardware compositing (Acceleration blocked by platform), allowing the usage of Firefox under Wayland without crashing.
+> I assume this have been added as a temporally workaround.
+
+Read https://bugzilla.mozilla.org/show_bug.cgi?id=1898476#c15",427666
+1898476,17012057,prodrigestivill@gmail.com,"(In reply to nodensntt from comment #30)
+> Read https://bugzilla.mozilla.org/show_bug.cgi?id=1898476#c15
+
+Hello nodensntt,
+
+This is not my case, since I didn't even have any Mesa drivers installed at all.
+But I believe this isn't related with this issue, just another inconvenience that impede to use Xwayland as a workaround.
+My intention was to just point out that using Xwayland isn't an option either (at least with the NVIDIA drivers).
+
+For me I have already disabled hardware compositing and it works okish under Wayland, so no big deal here, until this issue gets fixed.
+
+But to dig into the details, using NVIDIA EGL under Xwayland to me it creates a fully corrupted image window (and not only some texts) and it can get fixed by resizing the window. And every time it gets that corrupted again, one need to re-resize the window to fix the window contents.
+I also tried forcing using the `egl_vendor.d/10_nvidia.json` with my correct path and it fails the same way.
+
+By forcing to use Zink, it will work out of the box.
+To do so I had to install Mesa and I added this environment variables:
+```
+__EGL_VENDOR_LIBRARY_FILENAMES=/usr/lib/x86_64-linux-gnu/GL/glvnd/egl_vendor.d/50_mesa.json
+MESA_LOADER_DRIVER_OVERRIDE=zink
+GALLIUM_DRIVER=zink
+```
+But as you said using Zink works by failing back to software render, so I believe its easier to just disable hardware compositing manually and use Wayland directly.
+
+In any case, thanks for the reference anyway.",739305
+1898476,17012482,nodensntt@hotmail.com,"(In reply to Pau RE from comment #31)
+> But to dig into the details, using NVIDIA EGL under Xwayland to me it creates a fully corrupted image window (and not only some texts) and it can get fixed by resizing the window. And every time it gets that corrupted again, one need to re-resize the window to fix the window contents.
+> I also tried forcing using the `egl_vendor.d/10_nvidia.json` with my correct path and it fails the same way. 
+
+The thing is that Nvidia EGL under Xwayland is not working. At all. It is broken entirely. Can you check what exactly firefox says in about:support that it is using? It should be using GLX under Xwayland. Firefox should be automatically switching to GLX when using the nvidia provider after detecting that EGL is broken.",427666
+1898476,17012869,prodrigestivill@gmail.com,"My mistake, I was looking it wrong when testing other EGL applications.
+So its true about EGL not working in Xwayland, they switch to use Zink or software rendering when possible with error messages like:
+```
+mpv:     libEGL warning: egl: failed to create dri2 screen
+firefox: [GFX1-]: glxtest: libEGL no display
+```
+
+Also with my tests the rendering corruption only happen when firefox is using GLX with Xwayland with NVIDIA.
+I also discovered that having `MOZ_ENABLE_WAYLAND=0` will use GLX and hardware compositing with the rendering corruption bug.
+But having no environment variable or having it set to `1`, while also disabling Wayland access (while allowing access to Xwayland) it always fallback to both software rendering and compositing. Having no rendering issues, but poor performance.
+Not to be a problem, it's just that I find it a curiosity. :)
+
+Thanks for the information.",739305
+1898476,17013525,pulsebot@bmo.tld,"Pushed by stransky@redhat.com:
+https://hg.mozilla.org/integration/autoland/rev/480f3f701046
+[Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r=emilio
+https://hg.mozilla.org/integration/autoland/rev/69e7c8a0cca3
+[Wayland] Provide surface lock by GtkCompositorWidget r=emilio
+https://hg.mozilla.org/integration/autoland/rev/72c5ebe1a9da
+[Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r=emilio",510726
+1898476,17013572,smolnar@mozilla.com,"Backed out for causing build bustages @ widget/gtk/MozContainerSurfaceLock.cpp
+
+Backout link: https://hg.mozilla.org/integration/autoland/rev/0fb6382be83094550774d902bd79f88d0238b215
+
+[Push with failures](https://treeherder.mozilla.org/jobs?repo=autoland&selectedTaskRun=LzHUmOw7Q6SX9scjC60EKQ.0&resultStatus=testfailed%2Cbusted%2Cexception%2Crunnable&revision=9df54292060f7477b33777623cbab775749c9288&searchStr=Linux%2Cx64%2Cplain%2Cbuild-linux64-non-unified%2Fplain%2CBp-nu)
+
+[Failure log -> ERROR -  /builds/worker/checkouts/gecko/widget/gtk/MozContainerSurfaceLock.cpp:13:7: error: use of undeclared identifier 'GdkIsWaylandDisplay'; did you mean 'mozilla::widget::GdkIsWaylandDisplay'?](https://treeherder.mozilla.org/logviewer?job_id=465381337&repo=autoland&lineNumber=88014) 
+
+[Failure log -> Hit MOZ_CRASH(mozilla::detail::MutexImpl::mutexLock: pthread_mutex_lock failed) at /builds/worker/checkouts/gecko/mozglue/misc/Mutex_posix.cpp](https://treeherder.mozilla.org/logviewer?job_id=465381613&repo=autoland&lineNumber=1532)
+
+[Failure log -> /builds/worker/checkouts/gecko/widget/gtk/nsWindow.h:425:22: error: use of undeclared identifier 'MozContainerSurfaceLock'](https://treeherder.mozilla.org/logviewer?job_id=465381379&repo=autoland&lineNumber=13320)",670045
+1898476,17015466,pulsebot@bmo.tld,"Pushed by stransky@redhat.com:
+https://hg.mozilla.org/integration/autoland/rev/3e6bd6c75492
+[Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r=emilio
+https://hg.mozilla.org/integration/autoland/rev/fc9ffe1ae7ee
+[Wayland] Provide surface lock by GtkCompositorWidget r=emilio
+https://hg.mozilla.org/integration/autoland/rev/b56930a4d8bc
+[Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r=emilio",510726
+1898476,17015520,nfay@mozilla.com,"Backed out for causing mochitest crashes
+
+[Backout link](https://hg.mozilla.org/integration/autoland/rev/0ad3ade89f672be594246bcc18aabfe4f21d5fc7)
+
+[Push with failures](https://treeherder.mozilla.org/jobs?repo=autoland&noTelemetry=1&group_state=expanded&resultStatus=testfailed%2Cbusted%2Cexception&revision=b94db0e16ac75bb505462d11e1aa277766cb9d48&failure_classification_id=2)
+
+[Failure log](https://treeherder.mozilla.org/logviewer?job_id=465422521&repo=autoland&lineNumber=1543)
+
+There's also this tier 2 bustage: https://treeherder.mozilla.org/logviewer?job_id=465421991&repo=autoland&lineNumber=44833",692005
+1898476,17016886,stransky@redhat.com,"Yes, I see the failures on Wayland try although I don't see them locally. Will look at it.",263117
+1898476,17018760,nodensntt@hotmail.com,"After pulling updates on Fedora 40, under KDE plasma 6.1 wayland with kernel 6.9.8-200.fc40.x86_64, nvidia 555.58.02 and Firefox 128.0-1.fc40, I can replicate Pau RE's report above. GLX is now also unusable under xwayland with heavy graphical corruption.
+Only way to get firefox to display properly is to run with WebRender set to software.
+So the current situation is that we have no hardware acceleration possible at all with 555 nvidia drivers at this point.",427666
+1898476,17018768,stransky@redhat.com,"(In reply to nodensntt from comment #39)
+> After pulling updates on Fedora 40, under KDE plasma 6.1 wayland with kernel 6.9.8-200.fc40.x86_64, nvidia 555.58.02 and Firefox 128.0-1.fc40, I can replicate Pau RE's report above. GLX is now also unusable under xwayland with heavy graphical corruption.
+> Only way to get firefox to display properly is to run with WebRender set to software.
+> So the current situation is that we have no hardware acceleration possible at all with 555 nvidia drivers at this point.
+
+Fedora ships the patch downstream in latest Firefox 128.0 update - https://bodhi.fedoraproject.org/updates/FEDORA-2024-f9e8f7d3a7 - so it should work fine if you use Fedora provided packages. I sorted out the issues here and will push the patches today and we may also backport them  to beta.",263117
+1898476,17018819,pulsebot@bmo.tld,"Pushed by stransky@redhat.com:
+https://hg.mozilla.org/integration/autoland/rev/f9323daf7abe
+[Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r=emilio
+https://hg.mozilla.org/integration/autoland/rev/a264ff9e9f6f
+[Wayland] Provide surface lock by GtkCompositorWidget r=emilio
+https://hg.mozilla.org/integration/autoland/rev/eb230ecdf8eb
+[Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r=emilio",510726
+1898476,17019157,nodensntt@hotmail.com,"Created attachment 9412020
+var_log_messages_firefox_crash
+
+There's still something not right. I'm still getting crashes when running native wayland. Although now it may take a 30 seconds up to a couple of minutes in order to crash. Previously it was immediate:",427666
+1898476,17019161,nodensntt@hotmail.com,"Created attachment 9412021
+var_log_messages_firefox_crash
+
+There's still something not right. I'm still getting crashes when running native wayland. Although now it may take a 30 seconds up to a couple of minutes in order to crash. Previously it was immediate:",427666
+1898476,17019164,nodensntt@hotmail.com,"Created attachment 9412022
+var_log_messages_firefox_crash
+
+There's still something not right. I'm still getting crashes when running native wayland. Although now it may take a 30 seconds up to a couple of minutes in order to crash. Previously it was immediate:",427666
+1898476,17019177,rockyamethyst2@gmail.com,"Created attachment 9412023
+Report (as legible text) from about:support
+
+(In reply to Martin Stránský [:stransky] (ni? me) from comment #40)
+> (In reply to nodensntt from comment #39)
+> > After pulling updates on Fedora 40, under KDE plasma 6.1 wayland with kernel 6.9.8-200.fc40.x86_64, nvidia 555.58.02 and Firefox 128.0-1.fc40, I can replicate Pau RE's report above. GLX is now also unusable under xwayland with heavy graphical corruption.
+> > Only way to get firefox to display properly is to run with WebRender set to software.
+> > So the current situation is that we have no hardware acceleration possible at all with 555 nvidia drivers at this point.
+> 
+> Fedora ships the patch downstream in latest Firefox 128.0 update - https://bodhi.fedoraproject.org/updates/FEDORA-2024-f9e8f7d3a7 - so it should work fine if you use Fedora provided packages. I sorted out the issues here and will push the patches today and we may also backport them  to beta.
+
+Unsure where i should be reporting (since fedora's firefox package now differs from vanilla), but since you seem to be the one who pushed the patch, the explicit sync crash is fixed, but another crash takes it's place:
+
+```
+Assertion 'close_nointr(fd) != -EBADF' failed at src/basic/fd-util.c:75, function safe_close(). Aborting.
+Redirecting call to abort() to mozalloc_abort
+
+ExceptionHandler::GenerateDump attempting to generate:/home/amethyst/.mozilla/firefox/rvy1k4oc.default-release-1720218284033/minidumps/1ffe9ea9-4671-bf1f-69d3-7362d3186905.dmp
+ExceptionHandler::GenerateDump cloned child 46480
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::GenerateDump minidump generation succeeded
+```
+I'm unable to reproduce the symptoms mentioned by nodensntt and Pau Re, zero graphical corruption.
+Fedora 40, Latest firefox package (128.0-1.fc40, 20240709131756)
+Worth mentioning that i have a few about:config options set, for hardware decoding on web videos and etc.
+Attaching report from about:support",757128
+1898476,17019184,nodensntt@hotmail.com,"Sorry for the triple upload and noise but I kept getting a popup error while pasting in the comment box as a code block and choosing to upload which apparently also posted the written text so far thrice without updating the UI.
+
+Also in dmesg during the crash:
+```
+[  381.010425] [drm:nv_drm_semsurf_fence_wait_ioctl [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID 0x00006500] Attempt to wait on invalid sync FD: 235
+[  493.641779] [drm:nv_drm_semsurf_fence_wait_ioctl [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID 0x00006500] Attempt to wait on invalid sync FD: 226
+[  587.611001] show_signal_msg: 52 callbacks suppressed
+[  587.611006] WebExtensions[12032]: segfault at 0 ip 00007f91c214c5ca sp 00007ffe3fcc1e80 error 6 in libxul.so[7f91c1663000+4dfb000] likely on CPU 15 (core 25, socket 0)
+[  587.611026] Code: d4 05 49 89 04 24 31 d2 89 14 25 00 00 00 00 0f 0b 48 8d 35 f6 61 9d 05 48 89 e7 e8 d0 c8 bb 01 48 8b 04 24 49 89 04 24 31 c0 <89> 04 25 00 00 00 00 0f 0b f3 0f 1e fa 48 89 f8 48 85 f6 74 0f 48
+```",427666
+1898476,17019188,nodensntt@hotmail.com,"(In reply to rockyamethyst2 from comment #45)
+> I'm unable to reproduce the symptoms mentioned by nodensntt and Pau Re, zero
+> graphical corruption.
+
+Graphical corruption occurs only when run on xwayland via MOZ_ENABLE_WAYLAND=0 and using GLX (not software render).",427666
+1898476,17019779,nfay@mozilla.com,"https://hg.mozilla.org/mozilla-central/rev/f9323daf7abe
+https://hg.mozilla.org/mozilla-central/rev/a264ff9e9f6f
+https://hg.mozilla.org/mozilla-central/rev/eb230ecdf8eb",692005
+1898476,17020050,stransky@redhat.com,Please file a new bugs for the remaining issues. I don't have NVIDIA hardware so I can't test it reliably.,263117
+1898476,17023364,vseerror@fastmail.com,"https://crash-stats.mozilla.org/report/index/11556c48-552e-4279-a8ec-a0b3c0240713 Thunderbird, user states ""Nvidia 555 on Wayland with explicit sync""
+
+This is #1 crash for Thunderbird 128.0 esr, so the patch is urgently needed on esr",29811
+1898476,17025522,stransky@redhat.com,"(In reply to Wayne Mery (:wsmwk) from comment #50)
+> https://crash-stats.mozilla.org/report/index/11556c48-552e-4279-a8ec-a0b3c0240713 Thunderbird, user states ""Nvidia 555 on Wayland with explicit sync""
+> 
+> This is #1 crash for Thunderbird 128.0 esr, so the patch is urgently needed on esr
+
+Also take Bug 1907511 please.",263117
+1898476,17032184,stransky@redhat.com,*** Bug 1908816 has been marked as a duplicate of this bug. ***,263117
+1898476,17037292,ryanvm@gmail.com,It would be great if we could get some verification that these patches improved the situation for Nightly users. I know there's some push to backport these changes more aggressively and having some confidence that they've made things better would certainly help make an informed decision in that respect.,75935
+1898476,17038109,Vash63@gmail.com,"(In reply to Ryan VanderMeulen [:RyanVM] from comment #53)
+> It would be great if we could get some verification that these patches improved the situation for Nightly users. I know there's some push to backport these changes more aggressively and having some confidence that they've made things better would certainly help make an informed decision in that respect.
+
+It greatly improved the situation for me, from 100% crashing within the first 10 seconds of opening the browser to being ""mostly"" stable. I still get some crashes in Wayland that don't occur with XWayland, which I did not get prior to explicit sync, but they are now difficult to reproduce.",496444
+1898476,17038760,Vash63@gmail.com,"I can't reproduce this at all on 2024-07-23, marked it as verified. If there is any instability left it's probably something else.",496444
+1898476,17049821,stransky@redhat.com,"(In reply to Ryan VanderMeulen [:RyanVM] from comment #53)
+> It would be great if we could get some verification that these patches improved the situation for Nightly users. I know there's some push to backport these changes more aggressively and having some confidence that they've made things better would certainly help make an informed decision in that respect.
+
+Bug 1908825 as follow up is being investigated but I need more logging.
+
+From recent logs it looks like we fixed all places where we need to lock the surface commits and rest of the crashes comes from third party code (according to missing log entries from Firefox). 
+
+But I'll be sure when I get logs from https://bugzilla.mozilla.org/show_bug.cgi?id=1908825#c23",263117
+1898476,16949381,Vash63@gmail.com,"User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+
+Steps to reproduce:
+
+1. Installed the new Nvidia 555 series drivers
+2. Used Gnome 46.1 or another compositor with Explicit Sync support (kwin w/ some patches)
+3. Run Firefox
+
+
+Actual results:
+
+Firefox crashes with:
+```
+$ firefox-nightly/firefox
+[GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@59: error 4: No Acquire point provided
+
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::GenerateDump cloned child 43927
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+```
+
+
+Expected results:
+
+Firefox runs",496444
+1898476,16949414,release-mgmt-account-bot@mozilla.tld,"The [Bugbug](https://github.com/mozilla/bugbug/) bot thinks this bug should belong to the 'Core::Widget: Gtk' component, and is moving the bug to that component. Please correct in case you think the bot is wrong.",575867
+1898476,16951105,konrad@moesch.org,"For me, the error message looks slightly different:
+
+```
+$ firefox
+[GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@75: error 4: explicit sync is used, but no acquire point is set
+
+ExceptionHandler::GenerateDump cloned child 118029
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+Exiting due to channel error.
+```
+However, I think it is the same error.
+
+Troubleshoot mode works fine, normal mode (also without addons) crashes",754446
+1898476,16952701,Vash63@gmail.com,"Saw this when discussing this online: https://invent.kde.org/plasma/kwin/-/merge_requests/5683
+
+Not sure it helps here but it was causing QMplay2 on mesa w/ RADV (presumably this uses Vulkan somewhere?) to crash with:
+""wp_linux_drm_syncobj_surface_v1@107: error 4: explicit sync is used, but no acquire point is set""
+
+Maybe my bug is actually caused by Mutter then? @konrad are you on KDE, and if so can you try the above patch (or -git version of kwin since it's merged)?",496444
+1898476,16952710,Vash63@gmail.com,"(In reply to konrad from comment #2)
+> For me, the error message looks slightly different:
+> 
+> ```
+> $ firefox
+> [GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@75: error 4: explicit sync is used, but no acquire point is set
+> 
+> ExceptionHandler::GenerateDump cloned child 118029
+> ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+> ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+> Exiting due to channel error.
+> ```
+> However, I think it is the same error.
+> 
+> Troubleshoot mode works fine, normal mode (also without addons) crashes
+
+I re-tested this on the KDE 6.1 beta w/ explicit sync and can confirm the error changes to match yours:
+> [GFX1-]: Wayland protocol error: wp_linux_drm_syncobj_surface_v1@66: error 4: explicit sync is used, but no acquire point is set
+
+So it seems the error is from the compositor, not Firefox?",496444
+1898476,16952814,demarketed@gmail.com,"There is an issue about this on NVIDIA's egl-wayland repo, and it seems that the [Firefox's behavior is problematic](https://github.com/NVIDIA/egl-wayland/issues/110#issuecomment-2132241753).",674282
+1898476,16952864,jan@ikenmeyer.eu,*** Bug 1899000 has been marked as a duplicate of this bug. ***,580271
+1898476,16956957,demarketed@gmail.com,"In the [GitLab thread about the sync protocol](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/merge_requests/90#note_2243522), this is mentioned:
+> With firefox I'm seeing something some extra frame and commit events get injected into my attach+syncpoints+commit cycle:
+```
+[2365871.993]  -> wl_surface@63.attach(wl_buffer@67, 0, 0)
+[2365872.013]  -> wl_surface@63.frame(new id wl_callback@65)  <<<<<< This gets added from firefox
+[2365872.019]  -> wl_surface@63.commit()
+[2365872.039]  -> wp_linux_drm_syncobj_surface_v1@55.set_acquire_point(wp_linux_drm_syncobj_timeline_v1@59, 0, 252)
+[2365872.046]  -> wp_linux_drm_syncobj_surface_v1@55.set_release_point(wp_linux_drm_syncobj_timeline_v1@70, 0, 84)
+[2365872.051]  -> wl_surface@63.damage(0, 0, 1280, 972)
+[2365872.057]  -> wl_surface@63.commit()                      <<<<<< No buffer attach in this commit
+[2365872.062]  -> wl_display@1.sync(new id wl_callback@77)
+[2365872.139] wl_buffer@73.release()
+[2365872.234] wl_display@1.error(wl_surface@63, 3, ""explicit sync point set but no buffer attached for surface 63"")
+```
+
+The issue has also been reported on the [Mutter GitLab](https://gitlab.gnome.org/GNOME/mutter/-/issues/3504).
+
+According to the [discussions on GitHub](https://github.com/NVIDIA/egl-wayland/issues/110#issuecomment-2132241753) about this, Firefox has a thread trying to write to a surface allocation that another thread has not created yet, resulting in behavior that is not allowed by the sync protocol. There is a [log from Firefox](https://github.com/NVIDIA/egl-wayland/issues/110#issuecomment-2125358355) and a [log from Thunderbird](https://github.com/NVIDIA/egl-wayland/issues/110#issue-2310505060) of the issue happening.",674282
+1898476,16959990,stransky@redhat.com,"Yes, we'd need to sync write to wl_surface. Main issue is to share lock between GL and widget code.",263117
+1898476,16962514,admin@my4ng.dev,Is there any interim fix apart from downgrading explicit sync possible? Firefox has been crashing constantly with kwin and nvidia driver 555.,755230
+1898476,16962599,demarketed@gmail.com,"> Is there any interim fix
+
+You can run Firefox under Xwayland to work around the issue with the environment variable MOZ_ENABLE_WAYLAND=0. I have [copied the desktop file](https://wiki.archlinux.org/title/Desktop_entries#Modify_environment_variables) for Firefox to my user's ~/.local/share/applications so that I could set that variable automatically when launching Firefox.",674282
+1898476,16962823,admin@my4ng.dev,"> You can run Firefox under Xwayland to work around the issue with the environment variable MOZ_ENABLE_WAYLAND=0. I have [copied the desktop file](https://wiki.archlinux.org/title/Desktop_entries#Modify_environment_variables) for Firefox to my user's ~/.local/share/applications so that I could set that variable automatically when launching Firefox.
+
+That worked, thank you! I just added it to `/etc/environment` and restarted.",755230
+1898476,16972474,jon@ynstein.net,Is there an update that is expected to resolve this? I would rather not run using xwayland as it seems to degrade performance significantly.,755590
+1898476,16972505,kehofset@live.no,"(In reply to jon from comment #12)
+> Is there an update that is expected to resolve this? I would rather not run using xwayland as it seems to degrade performance significantly.
+
+For me Firefox reverted to software rendering in Xwayland mode, with significantly degraded performance. Setting `gfx.webrender.all=true` in about:config got it back to hardware rendering and got me mostly back to normal performance.",617490
+1898476,16975951,jon@ynstein.net,"(In reply to Karl Erik Hofseth from comment #13)
+> For me Firefox reverted to software rendering in Xwayland mode, with significantly degraded performance. Setting `gfx.webrender.all=true` in about:config got it back to hardware rendering and got me mostly back to normal performance.
+
+Unfortunately this didn't seem to work for me. Half of the text won't render for some reason.",755590
+1898476,16978090,nodensntt@hotmail.com,"(In reply to jon from comment #14)
+> (In reply to Karl Erik Hofseth from comment #13)
+> > For me Firefox reverted to software rendering in Xwayland mode, with significantly degraded performance. Setting `gfx.webrender.all=true` in about:config got it back to hardware rendering and got me mostly back to normal performance.
+> 
+> Unfortunately this didn't seem to work for me. Half of the text won't render for some reason.
+
+The reason it does that is because by default it is actually using the zink egl provider (can verify on about:support).
+The way to workaround it is add __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+
+This will make firefox switch to GLX basically because Nvidia EGL in xwayland is currently broken but you will get hardware acceleration and no broken fonts (the fonts issue is somehow related to subpixel rendering when using zink as I figured I can remedy the problem somewhat by flipping subpixel rendering option in KDE to something else and then back to RGB (in the case of my monitors) or None).
+
+Still this workaround, while it provides basic hardware acceleration, it comes with a lot of caveats that I have encountered. Main ones of the top of my head is that video hardware acceleration is impossible and there's no dmabuf support.
+
+Considering the performance issues on xwayland this should probably be higher priority as a release nvidia driver with explicit sync is coming soon and it will break wayland firefox on every system with nvidia proprietary driver.",427666
+1898476,16979422,jon@ynstein.net,"(In reply to nodensntt from comment #15)
+
+Thanks for the insight. I agree this should absolutely be a high priority.",755590
+1898476,16982240,juanrollgamer123456789@gmail.com,"Is there no ETA for a bug fix for this? I'm considering the option of using chromium as my daily driver since I'd want all my programs to be Wayland native, and this bug should be a higher priority since it breaks the experience of the browser. Firefox is better than chromium for me, but this bug is really grinding my gears. I appreciate what the developers are doing to give us an amazing experience and i thank you all for that as well.",754995
+1898476,16982262,mpalys7274@gmail.com,"I agree as to the potential high priority on this bug, as it makes Firefox completely unusable on the new Nvidia drivers.",755896
+1898476,16999067,fynnbwdt@gmail.com,"I'm not sure if this is also related to this issue, but since using the v555 drivers and plasma 6.1, I've been encountering occasional stuttering in full-screen video playback, i.e. the Video runs perfectly fine, and then the Framerate seems to dip considerably until it catches back up a few moments later. This happens in a clean-profile as well and notably does not seem to be related to video buffering.
+
+The issue is exclusive to Firefox and does not happen in chromium based browser - I'm fairly certain it is related to explicit sync support but I'm not quite certain, let me know if there is an existing report for this issue as well (could not find one) or if I should open a separate issue for this",756403
+1898476,16999068,fynnbwdt@gmail.com,"(In reply to fynnbwdt from comment #19)
+> I'm not sure if this is also related to this issue, but since using the v555 drivers and plasma 6.1, I've been encountering occasional stuttering in full-screen video playback, i.e. the Video runs perfectly fine, and then the Framerate seems to dip considerably until it catches back up a few moments later. This happens in a clean-profile as well and notably does not seem to be related to video buffering.
+> 
+> The issue is exclusive to Firefox and does not happen in chromium based browser - I'm fairly certain it is related to explicit sync support but I'm not quite certain, let me know if there is an existing report for this issue as well (could not find one) or if I should open a separate issue for this
+
+PS: Notably, it also does not happen when the video is not in full-screen. This happens only for full-screen video playback",756403
+1898476,16999890,stransky@redhat.com,"Created attachment 9409541
+Bug 1898476 [Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r?emilio",263117
+1898476,16999891,stransky@redhat.com,"Created attachment 9409542
+Bug 1898476 [Wayland] Provide surface lock by GtkCompositorWidget r?emilio
+
+
+
+Depends on D214883",263117
+1898476,16999892,stransky@redhat.com,"Created attachment 9409543
+Bug 1898476 [Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r?emilio,jgilbert
+
+
+
+Depends on D214884",263117
+1898476,17001284,juanrollgamer123456789@gmail.com,Thanks Martin. We know you will do a great work in fixing this problem. Looking forward for a better Linux experience!,754995
+1898476,17008739,kristalandstarlight@proton.me,*** Bug 1905762 has been marked as a duplicate of this bug. ***,756715
+1898476,17009314,Vash63@gmail.com,This is now impacting the stable Nvidia drivers since the release branch now supports explicit sync. Are the patches just needing review/testing? Firefox is fairly large so I don't usually built it myself but I'll see if I can test this in the coming days.,496444
+1898476,17010420,kahis19060@cutxsew.com,"Nvidia 555.58 driver, Fedora 40, KDE Plasma 6.1.1, Wayland. 
+
+Google web services (docs, drive) crash firefox when hardware acceleration enabled. Crashes do not occur when hardware acceleration is disabled in Firefox 127.0.2.",756799
+1898476,17011729,juanrollgamer123456789@gmail.com,"(In reply to Vash63 from comment #26)
+> This is now impacting the stable Nvidia drivers since the release branch now supports explicit sync. Are the patches just needing review/testing? Firefox is fairly large so I don't usually built it myself but I'll see if I can test this in the coming days.
+> Nvidia 555.58 driver, Fedora 40, KDE Plasma 6.1.1, Wayland. 
+> 
+> Google web services (docs, drive) crash firefox when hardware acceleration enabled. Crashes do not occur when hardware acceleration is disabled in Firefox 127.0.2.
+
+Yes. It's only related in how the NVIDIA driver communicates with the compositor. I found out that Firefox works just fine under Wayland using compositors without the linux-drm-syncobj-v1 protocol, like Hyprland. Might be because the compositor is not forcing buffer synchronization since it doesn't supports it. I'm not a programmer so i might be wrong, but what I do know is that this bug needs to be fixed and merged as soon as possible since it breaks the experience of the user. BTW you can use XWayland as a workaround if you want",754995
+1898476,17011960,prodrigestivill@gmail.com,"Regarding to Xwayland, at least with my setup (mutter 46.3.1, Xwayland 24.1.0, nvidia 555.58.02), using Firefox inside Xwayland it won't crash but all windows contents are totally corrupted, leaving Firefox unable to be used with this combination either. If I'm not mistaken Xwayland also have implemented support for linux-drm-syncobj-v1, even that I'm not sure if this is related with this other issue, but other EGL apps work well under Xwayland.
+
+Also, I noticed that at least in Firefox 128.0b9, using NVIDIA and with selected the ""recommended"" performance settings, it now automatically disables the hardware compositing (Acceleration blocked by platform), allowing the usage of Firefox under Wayland without crashing.
+I assume this have been added as a temporally workaround.
+
+Thanks.",739305
+1898476,17011997,nodensntt@hotmail.com,"(In reply to Pau RE from comment #29)
+> Regarding to Xwayland, at least with my setup (mutter 46.3.1, Xwayland 24.1.0, nvidia 555.58.02), using Firefox inside Xwayland it won't crash but all windows contents are totally corrupted, leaving Firefox unable to be used with this combination either. If I'm not mistaken Xwayland also have implemented support for linux-drm-syncobj-v1, even that I'm not sure if this is related with this other issue, but other EGL apps work well under Xwayland.
+> 
+> Also, I noticed that at least in Firefox 128.0b9, using NVIDIA and with selected the ""recommended"" performance settings, it now automatically disables the hardware compositing (Acceleration blocked by platform), allowing the usage of Firefox under Wayland without crashing.
+> I assume this have been added as a temporally workaround.
+
+Read https://bugzilla.mozilla.org/show_bug.cgi?id=1898476#c15",427666
+1898476,17012057,prodrigestivill@gmail.com,"(In reply to nodensntt from comment #30)
+> Read https://bugzilla.mozilla.org/show_bug.cgi?id=1898476#c15
+
+Hello nodensntt,
+
+This is not my case, since I didn't even have any Mesa drivers installed at all.
+But I believe this isn't related with this issue, just another inconvenience that impede to use Xwayland as a workaround.
+My intention was to just point out that using Xwayland isn't an option either (at least with the NVIDIA drivers).
+
+For me I have already disabled hardware compositing and it works okish under Wayland, so no big deal here, until this issue gets fixed.
+
+But to dig into the details, using NVIDIA EGL under Xwayland to me it creates a fully corrupted image window (and not only some texts) and it can get fixed by resizing the window. And every time it gets that corrupted again, one need to re-resize the window to fix the window contents.
+I also tried forcing using the `egl_vendor.d/10_nvidia.json` with my correct path and it fails the same way.
+
+By forcing to use Zink, it will work out of the box.
+To do so I had to install Mesa and I added this environment variables:
+```
+__EGL_VENDOR_LIBRARY_FILENAMES=/usr/lib/x86_64-linux-gnu/GL/glvnd/egl_vendor.d/50_mesa.json
+MESA_LOADER_DRIVER_OVERRIDE=zink
+GALLIUM_DRIVER=zink
+```
+But as you said using Zink works by failing back to software render, so I believe its easier to just disable hardware compositing manually and use Wayland directly.
+
+In any case, thanks for the reference anyway.",739305
+1898476,17012482,nodensntt@hotmail.com,"(In reply to Pau RE from comment #31)
+> But to dig into the details, using NVIDIA EGL under Xwayland to me it creates a fully corrupted image window (and not only some texts) and it can get fixed by resizing the window. And every time it gets that corrupted again, one need to re-resize the window to fix the window contents.
+> I also tried forcing using the `egl_vendor.d/10_nvidia.json` with my correct path and it fails the same way. 
+
+The thing is that Nvidia EGL under Xwayland is not working. At all. It is broken entirely. Can you check what exactly firefox says in about:support that it is using? It should be using GLX under Xwayland. Firefox should be automatically switching to GLX when using the nvidia provider after detecting that EGL is broken.",427666
+1898476,17012869,prodrigestivill@gmail.com,"My mistake, I was looking it wrong when testing other EGL applications.
+So its true about EGL not working in Xwayland, they switch to use Zink or software rendering when possible with error messages like:
+```
+mpv:     libEGL warning: egl: failed to create dri2 screen
+firefox: [GFX1-]: glxtest: libEGL no display
+```
+
+Also with my tests the rendering corruption only happen when firefox is using GLX with Xwayland with NVIDIA.
+I also discovered that having `MOZ_ENABLE_WAYLAND=0` will use GLX and hardware compositing with the rendering corruption bug.
+But having no environment variable or having it set to `1`, while also disabling Wayland access (while allowing access to Xwayland) it always fallback to both software rendering and compositing. Having no rendering issues, but poor performance.
+Not to be a problem, it's just that I find it a curiosity. :)
+
+Thanks for the information.",739305
+1898476,17013525,pulsebot@bmo.tld,"Pushed by stransky@redhat.com:
+https://hg.mozilla.org/integration/autoland/rev/480f3f701046
+[Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r=emilio
+https://hg.mozilla.org/integration/autoland/rev/69e7c8a0cca3
+[Wayland] Provide surface lock by GtkCompositorWidget r=emilio
+https://hg.mozilla.org/integration/autoland/rev/72c5ebe1a9da
+[Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r=emilio",510726
+1898476,17013572,smolnar@mozilla.com,"Backed out for causing build bustages @ widget/gtk/MozContainerSurfaceLock.cpp
+
+Backout link: https://hg.mozilla.org/integration/autoland/rev/0fb6382be83094550774d902bd79f88d0238b215
+
+[Push with failures](https://treeherder.mozilla.org/jobs?repo=autoland&selectedTaskRun=LzHUmOw7Q6SX9scjC60EKQ.0&resultStatus=testfailed%2Cbusted%2Cexception%2Crunnable&revision=9df54292060f7477b33777623cbab775749c9288&searchStr=Linux%2Cx64%2Cplain%2Cbuild-linux64-non-unified%2Fplain%2CBp-nu)
+
+[Failure log -> ERROR -  /builds/worker/checkouts/gecko/widget/gtk/MozContainerSurfaceLock.cpp:13:7: error: use of undeclared identifier 'GdkIsWaylandDisplay'; did you mean 'mozilla::widget::GdkIsWaylandDisplay'?](https://treeherder.mozilla.org/logviewer?job_id=465381337&repo=autoland&lineNumber=88014) 
+
+[Failure log -> Hit MOZ_CRASH(mozilla::detail::MutexImpl::mutexLock: pthread_mutex_lock failed) at /builds/worker/checkouts/gecko/mozglue/misc/Mutex_posix.cpp](https://treeherder.mozilla.org/logviewer?job_id=465381613&repo=autoland&lineNumber=1532)
+
+[Failure log -> /builds/worker/checkouts/gecko/widget/gtk/nsWindow.h:425:22: error: use of undeclared identifier 'MozContainerSurfaceLock'](https://treeherder.mozilla.org/logviewer?job_id=465381379&repo=autoland&lineNumber=13320)",670045
+1898476,17015466,pulsebot@bmo.tld,"Pushed by stransky@redhat.com:
+https://hg.mozilla.org/integration/autoland/rev/3e6bd6c75492
+[Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r=emilio
+https://hg.mozilla.org/integration/autoland/rev/fc9ffe1ae7ee
+[Wayland] Provide surface lock by GtkCompositorWidget r=emilio
+https://hg.mozilla.org/integration/autoland/rev/b56930a4d8bc
+[Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r=emilio",510726
+1898476,17015520,nfay@mozilla.com,"Backed out for causing mochitest crashes
+
+[Backout link](https://hg.mozilla.org/integration/autoland/rev/0ad3ade89f672be594246bcc18aabfe4f21d5fc7)
+
+[Push with failures](https://treeherder.mozilla.org/jobs?repo=autoland&noTelemetry=1&group_state=expanded&resultStatus=testfailed%2Cbusted%2Cexception&revision=b94db0e16ac75bb505462d11e1aa277766cb9d48&failure_classification_id=2)
+
+[Failure log](https://treeherder.mozilla.org/logviewer?job_id=465422521&repo=autoland&lineNumber=1543)
+
+There's also this tier 2 bustage: https://treeherder.mozilla.org/logviewer?job_id=465421991&repo=autoland&lineNumber=44833",692005
+1898476,17016886,stransky@redhat.com,"Yes, I see the failures on Wayland try although I don't see them locally. Will look at it.",263117
+1898476,17018760,nodensntt@hotmail.com,"After pulling updates on Fedora 40, under KDE plasma 6.1 wayland with kernel 6.9.8-200.fc40.x86_64, nvidia 555.58.02 and Firefox 128.0-1.fc40, I can replicate Pau RE's report above. GLX is now also unusable under xwayland with heavy graphical corruption.
+Only way to get firefox to display properly is to run with WebRender set to software.
+So the current situation is that we have no hardware acceleration possible at all with 555 nvidia drivers at this point.",427666
+1898476,17018768,stransky@redhat.com,"(In reply to nodensntt from comment #39)
+> After pulling updates on Fedora 40, under KDE plasma 6.1 wayland with kernel 6.9.8-200.fc40.x86_64, nvidia 555.58.02 and Firefox 128.0-1.fc40, I can replicate Pau RE's report above. GLX is now also unusable under xwayland with heavy graphical corruption.
+> Only way to get firefox to display properly is to run with WebRender set to software.
+> So the current situation is that we have no hardware acceleration possible at all with 555 nvidia drivers at this point.
+
+Fedora ships the patch downstream in latest Firefox 128.0 update - https://bodhi.fedoraproject.org/updates/FEDORA-2024-f9e8f7d3a7 - so it should work fine if you use Fedora provided packages. I sorted out the issues here and will push the patches today and we may also backport them  to beta.",263117
+1898476,17018819,pulsebot@bmo.tld,"Pushed by stransky@redhat.com:
+https://hg.mozilla.org/integration/autoland/rev/f9323daf7abe
+[Wayland] Move MozContainerSurfaceLock from MozContainerWayland to MozContainerSurfaceLock module r=emilio
+https://hg.mozilla.org/integration/autoland/rev/a264ff9e9f6f
+[Wayland] Provide surface lock by GtkCompositorWidget r=emilio
+https://hg.mozilla.org/integration/autoland/rev/eb230ecdf8eb
+[Wayland] Lock Wayland surface before Swap buffers in RenderCompositorEGL r=emilio",510726
+1898476,17019157,nodensntt@hotmail.com,"Created attachment 9412020
+var_log_messages_firefox_crash
+
+There's still something not right. I'm still getting crashes when running native wayland. Although now it may take a 30 seconds up to a couple of minutes in order to crash. Previously it was immediate:",427666
+1898476,17019161,nodensntt@hotmail.com,"Created attachment 9412021
+var_log_messages_firefox_crash
+
+There's still something not right. I'm still getting crashes when running native wayland. Although now it may take a 30 seconds up to a couple of minutes in order to crash. Previously it was immediate:",427666
+1898476,17019164,nodensntt@hotmail.com,"Created attachment 9412022
+var_log_messages_firefox_crash
+
+There's still something not right. I'm still getting crashes when running native wayland. Although now it may take a 30 seconds up to a couple of minutes in order to crash. Previously it was immediate:",427666
+1898476,17019177,rockyamethyst2@gmail.com,"Created attachment 9412023
+Report (as legible text) from about:support
+
+(In reply to Martin Stránský [:stransky] (ni? me) from comment #40)
+> (In reply to nodensntt from comment #39)
+> > After pulling updates on Fedora 40, under KDE plasma 6.1 wayland with kernel 6.9.8-200.fc40.x86_64, nvidia 555.58.02 and Firefox 128.0-1.fc40, I can replicate Pau RE's report above. GLX is now also unusable under xwayland with heavy graphical corruption.
+> > Only way to get firefox to display properly is to run with WebRender set to software.
+> > So the current situation is that we have no hardware acceleration possible at all with 555 nvidia drivers at this point.
+> 
+> Fedora ships the patch downstream in latest Firefox 128.0 update - https://bodhi.fedoraproject.org/updates/FEDORA-2024-f9e8f7d3a7 - so it should work fine if you use Fedora provided packages. I sorted out the issues here and will push the patches today and we may also backport them  to beta.
+
+Unsure where i should be reporting (since fedora's firefox package now differs from vanilla), but since you seem to be the one who pushed the patch, the explicit sync crash is fixed, but another crash takes it's place:
+
+```
+Assertion 'close_nointr(fd) != -EBADF' failed at src/basic/fd-util.c:75, function safe_close(). Aborting.
+Redirecting call to abort() to mozalloc_abort
+
+ExceptionHandler::GenerateDump attempting to generate:/home/amethyst/.mozilla/firefox/rvy1k4oc.default-release-1720218284033/minidumps/1ffe9ea9-4671-bf1f-69d3-7362d3186905.dmp
+ExceptionHandler::GenerateDump cloned child 46480
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ExceptionHandler::GenerateDump minidump generation succeeded
+```
+I'm unable to reproduce the symptoms mentioned by nodensntt and Pau Re, zero graphical corruption.
+Fedora 40, Latest firefox package (128.0-1.fc40, 20240709131756)
+Worth mentioning that i have a few about:config options set, for hardware decoding on web videos and etc.
+Attaching report from about:support",757128
+1898476,17019184,nodensntt@hotmail.com,"Sorry for the triple upload and noise but I kept getting a popup error while pasting in the comment box as a code block and choosing to upload which apparently also posted the written text so far thrice without updating the UI.
+
+Also in dmesg during the crash:
+```
+[  381.010425] [drm:nv_drm_semsurf_fence_wait_ioctl [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID 0x00006500] Attempt to wait on invalid sync FD: 235
+[  493.641779] [drm:nv_drm_semsurf_fence_wait_ioctl [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID 0x00006500] Attempt to wait on invalid sync FD: 226
+[  587.611001] show_signal_msg: 52 callbacks suppressed
+[  587.611006] WebExtensions[12032]: segfault at 0 ip 00007f91c214c5ca sp 00007ffe3fcc1e80 error 6 in libxul.so[7f91c1663000+4dfb000] likely on CPU 15 (core 25, socket 0)
+[  587.611026] Code: d4 05 49 89 04 24 31 d2 89 14 25 00 00 00 00 0f 0b 48 8d 35 f6 61 9d 05 48 89 e7 e8 d0 c8 bb 01 48 8b 04 24 49 89 04 24 31 c0 <89> 04 25 00 00 00 00 0f 0b f3 0f 1e fa 48 89 f8 48 85 f6 74 0f 48
+```",427666
+1898476,17019188,nodensntt@hotmail.com,"(In reply to rockyamethyst2 from comment #45)
+> I'm unable to reproduce the symptoms mentioned by nodensntt and Pau Re, zero
+> graphical corruption.
+
+Graphical corruption occurs only when run on xwayland via MOZ_ENABLE_WAYLAND=0 and using GLX (not software render).",427666
+1898476,17019779,nfay@mozilla.com,"https://hg.mozilla.org/mozilla-central/rev/f9323daf7abe
+https://hg.mozilla.org/mozilla-central/rev/a264ff9e9f6f
+https://hg.mozilla.org/mozilla-central/rev/eb230ecdf8eb",692005
+1898476,17020050,stransky@redhat.com,Please file a new bugs for the remaining issues. I don't have NVIDIA hardware so I can't test it reliably.,263117
+1898476,17023364,vseerror@fastmail.com,"https://crash-stats.mozilla.org/report/index/11556c48-552e-4279-a8ec-a0b3c0240713 Thunderbird, user states ""Nvidia 555 on Wayland with explicit sync""
+
+This is #1 crash for Thunderbird 128.0 esr, so the patch is urgently needed on esr",29811
+1898476,17025522,stransky@redhat.com,"(In reply to Wayne Mery (:wsmwk) from comment #50)
+> https://crash-stats.mozilla.org/report/index/11556c48-552e-4279-a8ec-a0b3c0240713 Thunderbird, user states ""Nvidia 555 on Wayland with explicit sync""
+> 
+> This is #1 crash for Thunderbird 128.0 esr, so the patch is urgently needed on esr
+
+Also take Bug 1907511 please.",263117
+1898476,17032184,stransky@redhat.com,*** Bug 1908816 has been marked as a duplicate of this bug. ***,263117
+1898476,17037292,ryanvm@gmail.com,It would be great if we could get some verification that these patches improved the situation for Nightly users. I know there's some push to backport these changes more aggressively and having some confidence that they've made things better would certainly help make an informed decision in that respect.,75935
+1898476,17038109,Vash63@gmail.com,"(In reply to Ryan VanderMeulen [:RyanVM] from comment #53)
+> It would be great if we could get some verification that these patches improved the situation for Nightly users. I know there's some push to backport these changes more aggressively and having some confidence that they've made things better would certainly help make an informed decision in that respect.
+
+It greatly improved the situation for me, from 100% crashing within the first 10 seconds of opening the browser to being ""mostly"" stable. I still get some crashes in Wayland that don't occur with XWayland, which I did not get prior to explicit sync, but they are now difficult to reproduce.",496444
+1898476,17038760,Vash63@gmail.com,"I can't reproduce this at all on 2024-07-23, marked it as verified. If there is any instability left it's probably something else.",496444
+1898476,17049821,stransky@redhat.com,"(In reply to Ryan VanderMeulen [:RyanVM] from comment #53)
+> It would be great if we could get some verification that these patches improved the situation for Nightly users. I know there's some push to backport these changes more aggressively and having some confidence that they've made things better would certainly help make an informed decision in that respect.
+
+Bug 1908825 as follow up is being investigated but I need more logging.
+
+From recent logs it looks like we fixed all places where we need to lock the surface commits and rest of the crashes comes from third party code (according to missing log entries from Firefox). 
+
+But I'll be sure when I get logs from https://bugzilla.mozilla.org/show_bug.cgi?id=1908825#c23",263117
+1891420,16890756,jrediger@mozilla.com,"We disabled it for `firefox.desktop.background.update`, which is the ""Firefox for Desktop Background Update Task"".
+We want to have it disabled for `firefox.desktop.background.defaultagent `, which is WDBA.
+
+And while we're at it maybe we should add that abbrevation to probe-scraper, because this is highly confusing.",533624
+1891420,16892498,jrediger@mozilla.com,"Or is it?
+The query from the original bug used `firefox_desktop_background_defaultagent`.
+
+We have `Firefox for Desktop Background Update Task`, which uses the app id `firefox.desktop.background.update`.
+It's comment says: 
+
+> As of this writing, the Firefox Background Updater is Windows-only. 
+
+[Dictionary entry](https://dictionary.telemetry.mozilla.org/apps/firefox_desktop_background_update?itemType=app_ids&page=1)
+
+We also have `Firefox Desktop Default Agent Task`, which uses the app id `firefox.desktop.background.defaultagent `.
+[Dictionary entry](https://dictionary.telemetry.mozilla.org/apps/firefox_desktop_background_defaultagent?itemType=app_ids&page=1).
+
+The abbrevation `WDBA` is not used in the probe-scraper entries at all.
+
+[nrishel called out:](https://phabricator.services.mozilla.com/D201079#7115272)
+
+> Looks like this disables pings for the Background Updater, not WDBA?
+
+Nick, can you clear this up?
+Which is which? 
+For which did we want to disable builtin pings?",533624
+1891420,16893404,nrishel@mozilla.com,"WDBA (Windows Default Browser Agent) and Default Agent are the same, so we want to disable internal pings for `firefox.desktop.background.defaultagent`.
+
+I'm not sure if we wanted to disable internal pings for the Background Updater though? Leaving ni for :nalexander.",697005
+1891420,16894859,nalexander@mozilla.com,"(In reply to Nick Rishel [:nrishel] from comment #2)
+> WDBA (Windows Default Browser Agent) and Default Agent are the same, so we want to disable internal pings for `firefox.desktop.background.defaultagent`.
+> 
+> I'm not sure if we wanted to disable internal pings for the Background Updater though? Leaving ni for :nalexander.
+
+We want to keep the internal pings for the background updater.  Sorry to not catch the incorrect name when reviewing.",432887
+1891420,16894888,jrediger@mozilla.com,"Created attachment 9396956
+[mozilla/probe-scraper] Bug 1891420 - Add the abbrevation WDBA so we know what it is (#728)",533624
+1891420,16894891,jrediger@mozilla.com,"Created attachment 9396957
+Bug 1891420 - Disable internal pings for Windows Default Browser Agent. r?nalexander!",533624
+1891420,16897933,pulsebot@bmo.tld,"Pushed by jrediger@mozilla.com:
+https://hg.mozilla.org/integration/autoland/rev/e3470b630145
+Disable internal pings for Windows Default Browser Agent. r=nalexander",510726
+1891420,16898435,sstanca@mozilla.com,https://hg.mozilla.org/mozilla-central/rev/e3470b630145,713502
+1891420,16917934,jrediger@mozilla.com,"Created attachment 9399786
+Bug 1891420 - Disable internal pings for Windows Default Browser Agent. r?nalexander!
+
+
+
+Original Revision: https://phabricator.services.mozilla.com/D207613",533624
+1891420,16917941,phab-bot@bmo.tld,"### beta Uplift Approval Request
+- **User impact if declined**: No telemetry sent from the background updater
+- **Code covered by automated testing**: no
+- **Fix verified in Nightly**: yes
+- **Needs manual QE test**: no
+- **Steps to reproduce for manual QE testing**: -
+- **Risk associated with taking this patch**: Little.
+- **Explanation of risk level**:  Disabling sending pings was flipped accidentally. This patch reverts that and instead correctly disables it for WDBA
+- **String changes made/needed**: -
+- **Is Android affected?**: no",600971
+1891420,16918307,pulsebot@bmo.tld,https://hg.mozilla.org/releases/mozilla-beta/rev/7610a650753b,510726
+1891420,16890756,jrediger@mozilla.com,"We disabled it for `firefox.desktop.background.update`, which is the ""Firefox for Desktop Background Update Task"".
+We want to have it disabled for `firefox.desktop.background.defaultagent `, which is WDBA.
+
+And while we're at it maybe we should add that abbrevation to probe-scraper, because this is highly confusing.",533624
+1891420,16892498,jrediger@mozilla.com,"Or is it?
+The query from the original bug used `firefox_desktop_background_defaultagent`.
+
+We have `Firefox for Desktop Background Update Task`, which uses the app id `firefox.desktop.background.update`.
+It's comment says: 
+
+> As of this writing, the Firefox Background Updater is Windows-only. 
+
+[Dictionary entry](https://dictionary.telemetry.mozilla.org/apps/firefox_desktop_background_update?itemType=app_ids&page=1)
+
+We also have `Firefox Desktop Default Agent Task`, which uses the app id `firefox.desktop.background.defaultagent `.
+[Dictionary entry](https://dictionary.telemetry.mozilla.org/apps/firefox_desktop_background_defaultagent?itemType=app_ids&page=1).
+
+The abbrevation `WDBA` is not used in the probe-scraper entries at all.
+
+[nrishel called out:](https://phabricator.services.mozilla.com/D201079#7115272)
+
+> Looks like this disables pings for the Background Updater, not WDBA?
+
+Nick, can you clear this up?
+Which is which? 
+For which did we want to disable builtin pings?",533624
+1891420,16893404,nrishel@mozilla.com,"WDBA (Windows Default Browser Agent) and Default Agent are the same, so we want to disable internal pings for `firefox.desktop.background.defaultagent`.
+
+I'm not sure if we wanted to disable internal pings for the Background Updater though? Leaving ni for :nalexander.",697005
+1891420,16894859,nalexander@mozilla.com,"(In reply to Nick Rishel [:nrishel] from comment #2)
+> WDBA (Windows Default Browser Agent) and Default Agent are the same, so we want to disable internal pings for `firefox.desktop.background.defaultagent`.
+> 
+> I'm not sure if we wanted to disable internal pings for the Background Updater though? Leaving ni for :nalexander.
+
+We want to keep the internal pings for the background updater.  Sorry to not catch the incorrect name when reviewing.",432887
+1891420,16894888,jrediger@mozilla.com,"Created attachment 9396956
+[mozilla/probe-scraper] Bug 1891420 - Add the abbrevation WDBA so we know what it is (#728)",533624
+1891420,16894891,jrediger@mozilla.com,"Created attachment 9396957
+Bug 1891420 - Disable internal pings for Windows Default Browser Agent. r?nalexander!",533624
+1891420,16897933,pulsebot@bmo.tld,"Pushed by jrediger@mozilla.com:
+https://hg.mozilla.org/integration/autoland/rev/e3470b630145
+Disable internal pings for Windows Default Browser Agent. r=nalexander",510726
+1891420,16898435,sstanca@mozilla.com,https://hg.mozilla.org/mozilla-central/rev/e3470b630145,713502
+1891420,16917934,jrediger@mozilla.com,"Created attachment 9399786
+Bug 1891420 - Disable internal pings for Windows Default Browser Agent. r?nalexander!
+
+
+
+Original Revision: https://phabricator.services.mozilla.com/D207613",533624
+1891420,16917941,phab-bot@bmo.tld,"### beta Uplift Approval Request
+- **User impact if declined**: No telemetry sent from the background updater
+- **Code covered by automated testing**: no
+- **Fix verified in Nightly**: yes
+- **Needs manual QE test**: no
+- **Steps to reproduce for manual QE testing**: -
+- **Risk associated with taking this patch**: Little.
+- **Explanation of risk level**:  Disabling sending pings was flipped accidentally. This patch reverts that and instead correctly disables it for WDBA
+- **String changes made/needed**: -
+- **Is Android affected?**: no",600971
+1891420,16918307,pulsebot@bmo.tld,https://hg.mozilla.org/releases/mozilla-beta/rev/7610a650753b,510726
+1891744,16894498,pessimism56@gmail.com,"User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0
+
+Steps to reproduce:
+
+sudo snap remove firefox
+sudo apt -y install curl python3 python3-pip llvm
+sudo python3 -m pip install uniffi-bindgen
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo 'export PATH=""'""$(python3 -m site --user-base)""'/bin:$PATH""' >> ~/.bashrc
+source ~/.bashrc
+curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -O
+python3 bootstrap.py --vcs=git
+cd mozilla-unified
+./mach bootstrap
+
+
+Actual results:
+
+ ./mach bootstrap
+Error running mach:
+
+    mach bootstrap
+
+The error occurred in mach itself. This is likely a bug in mach itself or a
+fundamental problem with a loaded module.
+
+You can invoke ``./mach busted`` to check if this issue is already on file. If it
+isn't, please use ``./mach busted file general`` to report it. If ``./mach busted`` is
+misbehaving, you can also inspect the dependencies of bug 1543241.
+
+If filing a bug, please include the full output of mach, including this error
+message.
+
+The details of the failure are as follows:
+
+AttributeError: /home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/libglean_ffi.so: undefined symbol: uniffi_glean_ffi_fn_clone_booleanmetric
+
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 278, in run
+    return self._run(argv)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 364, in _run
+    context.telemetry = create_telemetry_from_environment(self.settings)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/telemetry.py"", line 57, in create_telemetry_from_environment
+    from glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/__init__.py"", line 17, in <module>
+    from .glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/glean.py"", line 18, in <module>
+    from .config import Configuration
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/config.py"", line 12, in <module>
+    from . import net
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/__init__.py"", line 10, in <module>
+    from .base_uploader import BaseUploader
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/base_uploader.py"", line 12, in <module>
+    from .ping_uploader import PingUploader, UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/ping_uploader.py"", line 9, in <module>
+    from .._uniffi import UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/__init__.py"", line 1, in <module>
+    from .glean import *  # NOQA
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/glean.py"", line 849, in <module>
+    _UniffiLib.uniffi_glean_ffi_fn_clone_booleanmetric.argtypes = (
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 387, in __getattr__
+    func = self.__getitem__(name)
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 392, in __getitem__
+    func = self._FuncPtr((name_or_ordinal, self))
+steve@alta:/mnt/hdd/mozilla-unified$ ./mach busted
+Error running mach:
+
+    mach busted
+
+The error occurred in mach itself. This is likely a bug in mach itself or a
+fundamental problem with a loaded module.
+
+You can invoke ``./mach busted`` to check if this issue is already on file. If it
+isn't, please use ``./mach busted file general`` to report it. If ``./mach busted`` is
+misbehaving, you can also inspect the dependencies of bug 1543241.
+
+If filing a bug, please include the full output of mach, including this error
+message.
+
+The details of the failure are as follows:
+
+AttributeError: /home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/libglean_ffi.so: undefined symbol: uniffi_glean_ffi_fn_clone_booleanmetric
+
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 278, in run
+    return self._run(argv)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 364, in _run
+    context.telemetry = create_telemetry_from_environment(self.settings)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/telemetry.py"", line 57, in create_telemetry_from_environment
+    from glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/__init__.py"", line 17, in <module>
+    from .glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/glean.py"", line 18, in <module>
+    from .config import Configuration
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/config.py"", line 12, in <module>
+    from . import net
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/__init__.py"", line 10, in <module>
+    from .base_uploader import BaseUploader
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/base_uploader.py"", line 12, in <module>
+    from .ping_uploader import PingUploader, UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/ping_uploader.py"", line 9, in <module>
+    from .._uniffi import UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/__init__.py"", line 1, in <module>
+    from .glean import *  # NOQA
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/glean.py"", line 849, in <module>
+    _UniffiLib.uniffi_glean_ffi_fn_clone_booleanmetric.argtypes = (
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 387, in __getattr__
+    func = self.__getitem__(name)
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 392, in __getitem__
+    func = self._FuncPtr((name_or_ordinal, self))
+steve@alta:/mnt/hdd/mozilla-unified$ ^C
+
+
+
+Expected results:
+
+Successful Bootstrap
+
+There appears to be an undefined symbol error with the glean component:
+
+glean/_uniffi/libglean_ffi.so: undefined symbol: uniffi_glean_ffi_fn_clone_booleanmetric
+
+The same issue also blocks ./mach busted from working.
+
+This is an arm64 host running Ubuntu Jammy 22.04.",737313
+1891744,16894531,release-mgmt-account-bot@mozilla.tld,"The [Bugbug](https://github.com/mozilla/bugbug/) bot thinks this bug should belong to the 'Firefox Build System::Bootstrap Configuration' component, and is moving the bug to that component. Please correct in case you think the bot is wrong.",575867
+1891744,16895095,mh+mozilla@glandium.org,"mach bootstrap is not supported on arm64, as mentioned here: https://firefox-source-docs.mozilla.org/build/buildsystem/supported-configurations.html
+
+That said, the glean error shouldn't be happening.",47192
+1891744,16895696,jrediger@mozilla.com,"We currently don't ship linux arm64 builds of the glean-sdk on PyPi.
+I'm not sure why it even got installed. I thought pip will fail if it can't find the correct wheel for the host (in which case it should be ignored, we should gracefully handle glean not being available for mach)",533624
+1891744,16895764,mh+mozilla@glandium.org,"Where there are no wheels, pip will try to build it, and it looks like it succeeded doing that. But it looks like it results in something broken.",47192
+1891744,16895765,mh+mozilla@glandium.org,"I think it's possible to force it to always use wheels, though, so maybe we should do that? But that the install can produce something broken is a problem in and of itself, that should be fixed too.",47192
+1891744,16895772,jrediger@mozilla.com,"(In reply to Mike Hommey [:glandium] from comment #5)
+> I think it's possible to force it to always use wheels, though, so maybe we should do that? But that the install can produce something broken is a problem in and of itself, that should be fixed too.
+
+Yes, gonna look into that. Just ... uh ... need to get an arm64 build running.",533624
+1891744,16895793,jrediger@mozilla.com,"I think I found the issue of building it from the pypi source package.
+Good thing is: I think I can reproduce that on non-arm64-linux, so I can more easily test it locally.",533624
+1891744,16895873,github-automation@bmo.tld,"Created attachment 9397108
+[mozilla/glean] Bug 1891744 - Python: make installing from sdist possible (#2801)",723884
+1891744,16896469,jrediger@mozilla.com,"[badboy](https://github.com/badboy) merged PR [[mozilla/glean]: Bug 1891744 - Python: make installing from sdist possible (#2801)](https://github.com/mozilla/glean/pull/2801) in [3261de0](https://github.com/mozilla/glean/commit/3261de069c4e8c0cede999619917d4a6251e98c3).
+
+This fixes the glean side of things.
+Leaving open until I get this into a release.",533624
+1891744,16907494,jrediger@mozilla.com,`pip install glean-sdk` now works on arm64 linux (as long as rustc and cargo are installed),533624
+1891744,16894498,pessimism56@gmail.com,"User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0
+
+Steps to reproduce:
+
+sudo snap remove firefox
+sudo apt -y install curl python3 python3-pip llvm
+sudo python3 -m pip install uniffi-bindgen
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo 'export PATH=""'""$(python3 -m site --user-base)""'/bin:$PATH""' >> ~/.bashrc
+source ~/.bashrc
+curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -O
+python3 bootstrap.py --vcs=git
+cd mozilla-unified
+./mach bootstrap
+
+
+Actual results:
+
+ ./mach bootstrap
+Error running mach:
+
+    mach bootstrap
+
+The error occurred in mach itself. This is likely a bug in mach itself or a
+fundamental problem with a loaded module.
+
+You can invoke ``./mach busted`` to check if this issue is already on file. If it
+isn't, please use ``./mach busted file general`` to report it. If ``./mach busted`` is
+misbehaving, you can also inspect the dependencies of bug 1543241.
+
+If filing a bug, please include the full output of mach, including this error
+message.
+
+The details of the failure are as follows:
+
+AttributeError: /home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/libglean_ffi.so: undefined symbol: uniffi_glean_ffi_fn_clone_booleanmetric
+
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 278, in run
+    return self._run(argv)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 364, in _run
+    context.telemetry = create_telemetry_from_environment(self.settings)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/telemetry.py"", line 57, in create_telemetry_from_environment
+    from glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/__init__.py"", line 17, in <module>
+    from .glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/glean.py"", line 18, in <module>
+    from .config import Configuration
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/config.py"", line 12, in <module>
+    from . import net
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/__init__.py"", line 10, in <module>
+    from .base_uploader import BaseUploader
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/base_uploader.py"", line 12, in <module>
+    from .ping_uploader import PingUploader, UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/ping_uploader.py"", line 9, in <module>
+    from .._uniffi import UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/__init__.py"", line 1, in <module>
+    from .glean import *  # NOQA
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/glean.py"", line 849, in <module>
+    _UniffiLib.uniffi_glean_ffi_fn_clone_booleanmetric.argtypes = (
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 387, in __getattr__
+    func = self.__getitem__(name)
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 392, in __getitem__
+    func = self._FuncPtr((name_or_ordinal, self))
+steve@alta:/mnt/hdd/mozilla-unified$ ./mach busted
+Error running mach:
+
+    mach busted
+
+The error occurred in mach itself. This is likely a bug in mach itself or a
+fundamental problem with a loaded module.
+
+You can invoke ``./mach busted`` to check if this issue is already on file. If it
+isn't, please use ``./mach busted file general`` to report it. If ``./mach busted`` is
+misbehaving, you can also inspect the dependencies of bug 1543241.
+
+If filing a bug, please include the full output of mach, including this error
+message.
+
+The details of the failure are as follows:
+
+AttributeError: /home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/libglean_ffi.so: undefined symbol: uniffi_glean_ffi_fn_clone_booleanmetric
+
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 278, in run
+    return self._run(argv)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/main.py"", line 364, in _run
+    context.telemetry = create_telemetry_from_environment(self.settings)
+  File ""/mnt/hdd/mozilla-unified/python/mach/mach/telemetry.py"", line 57, in create_telemetry_from_environment
+    from glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/__init__.py"", line 17, in <module>
+    from .glean import Glean
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/glean.py"", line 18, in <module>
+    from .config import Configuration
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/config.py"", line 12, in <module>
+    from . import net
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/__init__.py"", line 10, in <module>
+    from .base_uploader import BaseUploader
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/base_uploader.py"", line 12, in <module>
+    from .ping_uploader import PingUploader, UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/net/ping_uploader.py"", line 9, in <module>
+    from .._uniffi import UploadResult
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/__init__.py"", line 1, in <module>
+    from .glean import *  # NOQA
+  File ""/home/steve/.mozbuild/srcdirs/mozilla-unified-0abccf3a52b3/_virtualenvs/mach/lib/python3.10/site-packages/glean/_uniffi/glean.py"", line 849, in <module>
+    _UniffiLib.uniffi_glean_ffi_fn_clone_booleanmetric.argtypes = (
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 387, in __getattr__
+    func = self.__getitem__(name)
+  File ""/usr/lib/python3.10/ctypes/__init__.py"", line 392, in __getitem__
+    func = self._FuncPtr((name_or_ordinal, self))
+steve@alta:/mnt/hdd/mozilla-unified$ ^C
+
+
+
+Expected results:
+
+Successful Bootstrap
+
+There appears to be an undefined symbol error with the glean component:
+
+glean/_uniffi/libglean_ffi.so: undefined symbol: uniffi_glean_ffi_fn_clone_booleanmetric
+
+The same issue also blocks ./mach busted from working.
+
+This is an arm64 host running Ubuntu Jammy 22.04.",737313
+1891744,16894531,release-mgmt-account-bot@mozilla.tld,"The [Bugbug](https://github.com/mozilla/bugbug/) bot thinks this bug should belong to the 'Firefox Build System::Bootstrap Configuration' component, and is moving the bug to that component. Please correct in case you think the bot is wrong.",575867
+1891744,16895095,mh+mozilla@glandium.org,"mach bootstrap is not supported on arm64, as mentioned here: https://firefox-source-docs.mozilla.org/build/buildsystem/supported-configurations.html
+
+That said, the glean error shouldn't be happening.",47192
